@@ -1,4 +1,4 @@
-require('./index');
+require('./oow');
 
 function suite() {
   let total = arguments.length;
