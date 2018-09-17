@@ -46,6 +46,12 @@ suite(
   // first
   assert('first of list',   equal([1, 2, 3].first(), 1)),
   assert('first of string', equal("hola".first(), 'h')),
+  // second
+  assert('second of list',   equal([1, 2, 3].second(), 2)),
+  assert('second of string', equal("hola".second(), 'o')),
+  // third
+  assert('third of list',   equal([1, 2, 3].third(), 3)),
+  assert('third of string', equal("hola".third(), 'l')),
   // last
   assert('last of list',   equal([1, 2, 3].last(), 3)),
   assert('last of string', equal("hola".last(), 'a')),
@@ -66,5 +72,8 @@ suite(
   assert('take 2 on a string', equal("hola".take(2), "ho")),
   // drop
   assert('drop 2 on a list',   equal([3,2,1].drop(2), [1])),
-  assert('drop 2 on a string', equal("hola".drop(2), "la"))
+  assert('drop 2 on a string', equal("hola".drop(2), "la")),
+  // compact
+  assert('compact a list with nulls', equal([1, null, 2].compact(), [1,2])),
+  assert('compact a list with undefineds', equal([undefined, 1, undefined, 2].compact(), [1,2]))
 );

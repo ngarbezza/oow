@@ -3,6 +3,8 @@
     isEmpty() { return this.length === 0; },
     notEmpty() { return !this.isEmpty(); },
     first() { return this[0]; },
+    second() { return this[1]; },
+    third() { return this[2]; },
     last() { return this[this.length-1]; },
     any(predicate) {
       for (let elem in this)
@@ -21,7 +23,7 @@
       if (!array) return false;
       if (this.length !== array.length) return false;
       
-      for (let i = 0, l=this.length; i < l; i++) {
+      for (let i = 0, l = this.length; i < l; i++) {
         if (this[i] instanceof Array && array[i] instanceof Array) {
           if (!this[i].equals(array[i])) return false;
         }
@@ -30,6 +32,9 @@
         }
       }
       return true;
+    },
+    compact() {
+      return this.filter(elem => elem !== null && elem !== undefined);
     }
   };
   
