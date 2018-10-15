@@ -1,24 +1,7 @@
 require('./oow');
+const { suite, test, assertTrue, assertFalse, assertEquals } = require('@ngarbezza/testy');
 
-function suite() {
-  let total = arguments.length;
-  let passed = 0;
-  for (let result in arguments)
-    if (arguments[result]) passed++;
-  let failed = total - passed;
-  console.log(`${total} tests, ${passed} passed, ${failed} failed`);
-}
-
-function assert(message, matcher) {
-  if (matcher.success) {
-    console.log(`[OK] ${message}`);
-  } else {
-    console.log(`[FAIL] ${message}. ${matcher.errorMessage}`);
-  }
-  return matcher.success;
-}
-
-function equal(actual, expected) {
+function assertEqual(actual, expected) {
   let result;
   if (expected instanceof Array) {
     result = actual.equals(expected);
@@ -28,52 +11,44 @@ function equal(actual, expected) {
   return { success: result, errorMessage: `Expected ${expected} got ${actual}` };
 }
 
-function isTrue(value) {
-  return { success: value, errorMessage: `Expected ${value} to be true` };
-}
-
-function isFalse(value) {
-  return { success: !value, errorMessage: `Expected ${value} to be false` };
-}
-
 suite(
   // isEmpty
-  assert('list is empty',   isTrue([].isEmpty())),
-  assert('string is empty', isTrue("".isEmpty())),
+  test('list is empty',   assertTrue([].isEmpty())),
+  test('string is empty', assertTrue("".isEmpty())),
   // notEmpty
-  assert('list is not empty',   isTrue([1].notEmpty())),
-  assert('string is not empty', isTrue("a".notEmpty())),
+  test('list is not empty',   assertTrue([1].notEmpty())),
+  test('string is not empty', assertTrue("a".notEmpty())),
   // first
-  assert('first of list',   equal([1, 2, 3].first(), 1)),
-  assert('first of string', equal("hola".first(), 'h')),
+  test('first of list',   assertEqual([1, 2, 3].first(), 1)),
+  test('first of string', assertEqual("hola".first(), 'h')),
   // second
-  assert('second of list',   equal([1, 2, 3].second(), 2)),
-  assert('second of string', equal("hola".second(), 'o')),
+  test('second of list',   assertEqual([1, 2, 3].second(), 2)),
+  test('second of string', assertEqual("hola".second(), 'o')),
   // third
-  assert('third of list',   equal([1, 2, 3].third(), 3)),
-  assert('third of string', equal("hola".third(), 'l')),
+  test('third of list',   assertEqual([1, 2, 3].third(), 3)),
+  test('third of string', assertEqual("hola".third(), 'l')),
   // last
-  assert('last of list',   equal([1, 2, 3].last(), 3)),
-  assert('last of string', equal("hola".last(), 'a')),
+  test('last of list',   assertEqual([1, 2, 3].last(), 3)),
+  test('last of string', assertEqual("hola".last(), 'a')),
   // any
-  assert('any in case true - lists',  isTrue([1,2,3].any(num => num > 2))),
-  assert('any in case true - string', isTrue("hola".any(letter => letter === "o"))),
-  assert('any in case false - lists', isFalse([1,2,3].any(num => num > 5))),
-  assert('any in case false - lists', isFalse("hola".any(letter => letter === "w"))),
-  assert('any in case empty',         isFalse([].any(_ => false))),
+  test('any in case true - lists',  assertTrue([1,2,3].any(num => num > 2))),
+  test('any in case true - string', assertTrue("hola".any(letter => letter === "o"))),
+  test('any in case false - lists', assertFalse([1,2,3].any(num => num > 5))),
+  test('any in case false - lists', assertFalse("hola".any(letter => letter === "w"))),
+  test('any in case empty',         assertFalse([].any(_ => false))),
   // all
-  assert('all in case true - lists',  isTrue([1,2,3].all(num => num < 4))),
-  assert('all in case true - string', isTrue("hola".all(letter => letter.match(/[a-z]/i)))),
-  assert('all in case false - lists', isFalse([1,2,3].all(num => num > 2))),
-  assert('all in case false - lists', isFalse("aaah".all(letter => letter === "a"))),
-  assert('all in case empty',         isTrue([].all(_ => false))),
+  test('all in case true - lists',  assertTrue([1,2,3].all(num => num < 4))),
+  test('all in case true - string', assertTrue("hola".all(letter => letter.match(/[a-z]/i)))),
+  test('all in case false - lists', assertFalse([1,2,3].all(num => num > 2))),
+  test('all in case false - lists', assertFalse("aaah".all(letter => letter === "a"))),
+  test('all in case empty',         assertTrue([].all(_ => false))),
   // take
-  assert('take 2 on a list',   equal([3,2,1].take(2), [3,2])),
-  assert('take 2 on a string', equal("hola".take(2), "ho")),
+  test('take 2 on a list',   assertEqual([3,2,1].take(2), [3,2])),
+  test('take 2 on a string', assertEqual("hola".take(2), "ho")),
   // drop
-  assert('drop 2 on a list',   equal([3,2,1].drop(2), [1])),
-  assert('drop 2 on a string', equal("hola".drop(2), "la")),
+  test('drop 2 on a list',   assertEqual([3,2,1].drop(2), [1])),
+  test('drop 2 on a string', assertEqual("hola".drop(2), "la")),
   // compact
-  assert('compact a list with nulls', equal([1, null, 2].compact(), [1,2])),
-  assert('compact a list with undefineds', equal([undefined, 1, undefined, 2].compact(), [1,2]))
+  test('compact a list with nulls', assertEqual([1, null, 2].compact(), [1,2])),
+  test('compact a list with undefineds', assertEqual([undefined, 1, undefined, 2].compact(), [1,2]))
 );

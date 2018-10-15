@@ -1,10 +1,10 @@
 (function () {
   const Collection = {
-    isEmpty() { return this.length === 0; },
-    notEmpty() { return !this.isEmpty(); },
-    first() { return this[0]; },
-    second() { return this[1]; },
-    third() { return this[2]; },
+    isEmpty() { return this.length === 0 },
+    notEmpty() { return !this.isEmpty() },
+    first() { return this[0] },
+    second() { return this[1] },
+    third() { return this[2] },
     last() { return this[this.length-1]; },
     any(predicate) {
       for (let elem in this)
@@ -12,47 +12,47 @@
       return false;
     },
     all(predicate) {
-      return !this.any(elem => !predicate(elem));
+      return !this.any(elem => !predicate(elem))
     },
-    take(n) { return this.slice(0, n); },
-    drop(n) { return this.slice(n, this.length); }
+    take(n) { return this.slice(0, n) },
+    drop(n) { return this.slice(n, this.length) }
   };
   
   const ArrayExtensions = {
     equals(array) {
       if (!array) return false;
-      if (this.length !== array.length) return false;
+      let differentLength = this.length !== array.length;
+      if (differentLength) return false;
       
       for (let i = 0, l = this.length; i < l; i++) {
-        if (this[i] instanceof Array && array[i] instanceof Array) {
-          if (!this[i].equals(array[i])) return false;
-        }
-        else if (this[i] !== array[i]) {
-          return false;
-        }
+        let elemsAreArrays = (this[i] instanceof Array) && (array[i] instanceof Array);
+        if (elemsAreArrays && !this[i].equals(array[i])) return false;
+        if (this[i] !== array[i]) return false
       }
-      return true;
+      return true
     },
     compact() {
-      return this.filter(elem => elem !== null && elem !== undefined);
+      return this.filter(elem => elem !== null && elem !== undefined)
+    },
+    sum(func, startValue) {
+      let sumElement = (acc, elem) => acc + ((func && func(elem)) || elem);
+      return this.reduce(sumElement, startValue || 0)
     }
   };
   
-  let eachExtensionOf = function(extension, block) {
-    Object.keys(extension).forEach(block)
-  };
+  let eachExtensionOf = (extension, block) =>
+    Object.keys(extension).forEach(block);
   
-  let extend = function(proto, extension, methodName) {
+  let extend = (proto, extension, methodName) =>
     Object.defineProperty(proto, methodName, { value: extension[methodName] });
-  };
   
-  eachExtensionOf(Collection, function (methodName) {
-    [Array.prototype, String.prototype].forEach(function (proto) {
-      extend(proto, Collection, methodName);
-    });
-  });
+  eachExtensionOf(Collection, methodName =>
+    [Array.prototype, String.prototype].forEach(proto =>
+      extend(proto, Collection, methodName)
+    )
+  );
   
-  eachExtensionOf(ArrayExtensions, function (methodName) {
-    extend(Array.prototype, ArrayExtensions, methodName);
-  });
+  eachExtensionOf(ArrayExtensions, methodName =>
+    extend(Array.prototype, ArrayExtensions, methodName)
+  )
 })();
