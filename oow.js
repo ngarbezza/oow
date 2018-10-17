@@ -15,7 +15,8 @@
       return !this.any(elem => !predicate(elem))
     },
     take(n) { return this.slice(0, n) },
-    drop(n) { return this.slice(n, this.length) }
+    drop(n) { return this.slice(n, this.length) },
+    count(predicate) { return this.filter(predicate).length },
   };
   
   const ArrayExtensions = {
@@ -37,6 +38,12 @@
     sum(func, startValue) {
       let sumElement = (acc, elem) => acc + ((func && func(elem)) || elem);
       return this.reduce(sumElement, startValue || 0)
+    },
+  };
+  
+  const StringExtensions = {
+    filter(predicate) {
+      return this.split('').filter(predicate).join('');
     }
   };
   
@@ -54,5 +61,9 @@
   
   eachExtensionOf(ArrayExtensions, methodName =>
     extend(Array.prototype, ArrayExtensions, methodName)
-  )
+  );
+  
+  eachExtensionOf(StringExtensions, methodName =>
+    extend(String.prototype, StringExtensions, methodName)
+  );
 })();

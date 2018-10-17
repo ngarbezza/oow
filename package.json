@@ -1,6 +1,6 @@
 {
   "name": "oow",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Extension methods that should exist in JS core by default",
   "homepage": "https://github.com/ngarbezza/oow",
   "repository": {
@@ -20,6 +20,6 @@
   "author": "Nahuel Garbezza <nahuel@10pines.com>",
   "license": "MIT",
   "devDependencies": {
-    "@ngarbezza/testy": "^1.2.0"
+    "@ngarbezza/testy": "^2.1.0"
   }
 }
