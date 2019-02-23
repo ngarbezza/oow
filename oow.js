@@ -17,6 +17,7 @@
     take(n) { return this.slice(0, n); },
     drop(n) { return this.slice(n, this.length); },
     count(predicate) { return this.filter(predicate).length; },
+    asSet() { return new Set(this); },
   };
   
   const ArrayExtensions = {

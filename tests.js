@@ -48,4 +48,7 @@ suite('messages added to array and string', () => {
   test('counting on string', () => assert.areEqual('holaaaaa'.count(l => l === "a"), 5));
   // filter on string
   test('filtering on string', () => assert.areEqual('asaoamaeatahaianaga'.filter(l => l !== 'a'), 'something'));
+  // asSet
+  test('asSet on list',   () => assert.areEqual([1, 42, 1, 1].asSet(), new Set([1, 42])));
+  test('asSet on string', () => assert.areEqual('holaaaaa'.asSet(), new Set('hola')));
 }).run();
