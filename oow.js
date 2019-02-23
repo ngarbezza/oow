@@ -18,6 +18,7 @@
     drop(n) { return this.slice(n, this.length); },
     count(predicate) { return this.filter(predicate).length; },
     asSet() { return new Set(this); },
+    occurrencesOf(object) { return this.count(elem => elem === object); },
   };
   
   const ArrayExtensions = {

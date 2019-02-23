@@ -51,4 +51,18 @@ suite('messages added to array and string', () => {
   // asSet
   test('asSet on list',   () => assert.areEqual([1, 42, 1, 1].asSet(), new Set([1, 42])));
   test('asSet on string', () => assert.areEqual('holaaaaa'.asSet(), new Set('hola')));
+  // occurrences of element
+  test('occurrences of object on list', () => {
+    assert.areEqual([1, 1, 1, 23].occurrencesOf(1), 3);
+    assert.areEqual([1, 1, 1, 23].occurrencesOf(23), 1);
+    assert.areEqual([1, 1, 1, 23].occurrencesOf(100), 0);
+  });
+  test('occurrences of object on list does not use coertion', () => {
+    assert.areEqual([1, "1", 1, 23].occurrencesOf(1), 2); // with == we would have got 3
+  });
+  test('occurrences of character on string', () => {
+    assert.areEqual('holaaaaa'.occurrencesOf('a'), 5);
+    assert.areEqual('holaaaaa'.occurrencesOf('h'), 1);
+    assert.areEqual('holaaaaa'.occurrencesOf('z'), 0);
+  });
 }).run();
