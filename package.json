@@ -9,7 +9,7 @@
   },
   "main": "oow.js",
   "scripts": {
-    "test": "node tests.js"
+    "test": "node $NODE_DEBUG_OPTION tests.js"
   },
   "files": [
     "oow.js"
@@ -20,6 +20,6 @@
   "author": "Nahuel Garbezza <nahuel@10pines.com>",
   "license": "MIT",
   "devDependencies": {
-    "@ngarbezza/testy": "^2.1.0"
+    "@pmoo/testy": "^3.1.1"
   }
 }
