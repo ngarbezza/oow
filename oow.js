@@ -1,22 +1,22 @@
+'use strict';
+
 (function () {
   const Collection = {
-    isEmpty() { return this.length === 0 },
-    notEmpty() { return !this.isEmpty() },
-    first() { return this[0] },
-    second() { return this[1] },
-    third() { return this[2] },
+    isEmpty() { return this.length === 0; },
+    notEmpty() { return !this.isEmpty(); },
+    first() { return this[0]; },
+    second() { return this[1]; },
+    third() { return this[2]; },
     last() { return this[this.length-1]; },
     any(predicate) {
       for (let elem in this)
         if (predicate(this[elem])) return true;
       return false;
     },
-    all(predicate) {
-      return !this.any(elem => !predicate(elem))
-    },
-    take(n) { return this.slice(0, n) },
-    drop(n) { return this.slice(n, this.length) },
-    count(predicate) { return this.filter(predicate).length },
+    all(predicate) { return !this.any(elem => !predicate(elem)); },
+    take(n) { return this.slice(0, n); },
+    drop(n) { return this.slice(n, this.length); },
+    count(predicate) { return this.filter(predicate).length; },
   };
   
   const ArrayExtensions = {
@@ -33,11 +33,11 @@
       return true
     },
     compact() {
-      return this.filter(elem => elem !== null && elem !== undefined)
+      return this.filter(elem => elem !== null && elem !== undefined);
     },
     sum(func, startValue) {
       let sumElement = (acc, elem) => acc + ((func && func(elem)) || elem);
-      return this.reduce(sumElement, startValue || 0)
+      return this.reduce(sumElement, startValue || 0);
     },
   };
   
