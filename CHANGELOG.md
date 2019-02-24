@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [asSet() for array and strings (#1)](https://github.com/ngarbezza/oow/issues/1)
 - [occurrencesOf(object) for array and strings (#2)](https://github.com/ngarbezza/oow/issues/2)
 - [includesAllOf(collection) for arrays and strings (#3)](https://github.com/ngarbezza/oow/issues/3)
+- [Add existing messages to Set, which is a collection (#4)](https://github.com/ngarbezza/oow/issues/4)
+- [forEach() for strings (#6)](https://github.com/ngarbezza/oow/issues/6)
+- [equals() for strings (#8)](https://github.com/ngarbezza/oow/issues/8)
+- Messages on Set to have more polymorphism: `filter`, `includes`, `equals`, `asSet`
 
 ## [1.5.1] - 2019-02-23
 
