@@ -84,33 +84,18 @@
   let extend = (proto, extension, methodName) =>
     Object.defineProperty(proto, methodName, { value: extension[methodName] });
   
-  eachExtensionOf(Collection, methodName =>
-    [Array.prototype, String.prototype, Set.prototype].forEach(proto =>
-      extend(proto, Collection, methodName)
-    )
-  );
+  let applyExtension = (extension, ...targetPrototypes) => {
+    eachExtensionOf(extension, methodName =>
+      targetPrototypes.forEach(proto =>
+        extend(proto, extension, methodName)
+      )
+    );
+  };
   
-  eachExtensionOf(SequenceableCollection, methodName =>
-    [Array.prototype, String.prototype].forEach(proto =>
-      extend(proto, SequenceableCollection, methodName)
-    )
-  );
-  
-  eachExtensionOf(HeterogeneusCollection, methodName =>
-    [Array.prototype, Set.prototype].forEach(proto =>
-      extend(proto, HeterogeneusCollection, methodName)
-    )
-  );
-  
-  eachExtensionOf(ArrayExtensions, methodName =>
-    extend(Array.prototype, ArrayExtensions, methodName)
-  );
-  
-  eachExtensionOf(StringExtensions, methodName =>
-    extend(String.prototype, StringExtensions, methodName)
-  );
-  
-  eachExtensionOf(SetExtensions, methodName =>
-    extend(Set.prototype, SetExtensions, methodName)
-  );
+  applyExtension(Collection, Array.prototype, String.prototype, Set.prototype);
+  applyExtension(SequenceableCollection, Array.prototype, String.prototype);
+  applyExtension(HeterogeneusCollection, Array.prototype, Set.prototype);
+  applyExtension(ArrayExtensions, Array.prototype);
+  applyExtension(StringExtensions, String.prototype);
+  applyExtension(SetExtensions, Set.prototype);
 })();
