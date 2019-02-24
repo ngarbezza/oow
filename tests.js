@@ -6,13 +6,13 @@ const { suite, test, assert } = require('@pmoo/testy');
 suite('messages added to array and string', () => {
   // isEmpty
   test('list is empty',   () => assert.isTrue([].isEmpty()));
-  test('string is empty', () => assert.isTrue("".isEmpty()));
+  test('string is empty', () => assert.isTrue(''.isEmpty()));
   // notEmpty
   test('list is not empty',  () => assert.isTrue([1].notEmpty()));
-  test('string is not empty', () => assert.isTrue("a".notEmpty()));
+  test('string is not empty', () => assert.isTrue('a'.notEmpty()));
   // first
   test('first of list',   () => assert.areEqual([1, 2, 3].first(), 1));
-  test('first of string', () => assert.areEqual("hola".first(), 'h'));
+  test('first of string', () => assert.areEqual('hola'.first(), 'h'));
   // second
   test('second of list',   () => assert.areEqual([1, 2, 3].second(), 2));
   test('second of string', () => assert.areEqual('hola'.second(), 'o'));
@@ -24,9 +24,9 @@ suite('messages added to array and string', () => {
   test('last of string', () => assert.areEqual('hola'.last(), 'a'));
   // any
   test('any in case true - lists',  () => assert.isTrue([1,2,3].any(num => num > 2)));
-  test('any in case true - string', () => assert.isTrue("hola".any(letter => letter === "o")));
+  test('any in case true - string', () => assert.isTrue('hola'.any(letter => letter === 'o')));
   test('any in case false - lists', () => assert.isFalse([1,2,3].any(num => num > 5)));
-  test('any in case false - lists', () => assert.isFalse("hola".any(letter => letter === "w")));
+  test('any in case false - lists', () => assert.isFalse('hola'.any(letter => letter === 'w')));
   test('any in case empty',         () => assert.isFalse([].any(_ => false)));
   // all
   test('all in case true - lists',  () => assert.isTrue([1,2,3].all(num => num < 4)));
@@ -45,7 +45,9 @@ suite('messages added to array and string', () => {
   test('compact a list with undefineds', () => assert.areEqual([undefined, 1, undefined, 2].compact(), [1,2]));
   // count
   test('counting on list',   () => assert.areEqual([1, 42, 2, 23].count(n => n >= 2), 3));
-  test('counting on string', () => assert.areEqual('holaaaaa'.count(l => l === "a"), 5));
+  test('counting on string', () => assert.areEqual('holaaaaa'.count(l => l === 'a'), 5));
+  test('counting on string', () => assert.areEqual('holaaaaa'.count(l => l === 'a'), 5));
+  test('counting on string', () => assert.areEqual('holaaaaa'.count(l => l === 'a'), 5));
   // filter on string
   test('filtering on string', () => assert.areEqual('asaoamaeatahaianaga'.filter(l => l !== 'a'), 'something'));
   // asSet
@@ -58,11 +60,20 @@ suite('messages added to array and string', () => {
     assert.areEqual([1, 1, 1, 23].occurrencesOf(100), 0);
   });
   test('occurrences of object on list does not use coertion', () => {
-    assert.areEqual([1, "1", 1, 23].occurrencesOf(1), 2); // with == we would have got 3
+    assert.areEqual([1, '1', 1, 23].occurrencesOf(1), 2); // with == we would have got 3
   });
   test('occurrences of character on string', () => {
     assert.areEqual('holaaaaa'.occurrencesOf('a'), 5);
     assert.areEqual('holaaaaa'.occurrencesOf('h'), 1);
     assert.areEqual('holaaaaa'.occurrencesOf('z'), 0);
+  });
+  // includes "all of"
+  test('includes all of an array/string', () => {
+    assert.isTrue([1, 2, 3].includesAllOf([2, 3]));
+    assert.isTrue('holaaaaa'.includesAllOf('alo'));
+  });
+  test('does not include all of an array/string', () => {
+    assert.isFalse([1, 2, 3].includesAllOf([2, 4]));
+    assert.isFalse('holaaaaa'.includesAllOf('alou'));
   });
 }).run();

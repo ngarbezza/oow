@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - [asSet() for array and strings (#1)](https://github.com/ngarbezza/oow/issues/1)
 - [occurrencesOf(object) for array and strings (#2)](https://github.com/ngarbezza/oow/issues/2)
+- [includesAllOf(collection) for arrays and strings (#3)](https://github.com/ngarbezza/oow/issues/3)
 
 ## [1.5.1] - 2019-02-23
 
