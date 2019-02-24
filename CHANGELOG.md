@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Everything is released. Yay!
+
+## [1.6.1] - 2019-02-24
+
 ### Added
 - [asSet() for array and strings (#1)](https://github.com/ngarbezza/oow/issues/1)
 - [occurrencesOf(object) for array and strings (#2)](https://github.com/ngarbezza/oow/issues/2)
@@ -21,5 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changes to project structure: readme, changelog, dotfiles.
 - Upgrade to latest version of Testy (v3.1.1)
 
-[Unreleased]: https://github.com/ngarbezza/testy/compare/v1.5.1...HEAD
+[Unreleased]: https://github.com/ngarbezza/testy/compare/v1.6.1...HEAD
+[1.6.1]: https://github.com/ngarbezza/testy/compare/v1.5.1...v1.6.1
 [1.5.1]: https://github.com/ngarbezza/testy/compare/v1.5.0...v1.5.1
