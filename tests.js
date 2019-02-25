@@ -171,4 +171,11 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual([1, 2, 3].sum(identity, 10), 16);
     assert.areEqual(new Set([4, 5, 5]).sum(identity, 5), 14);
   });
+  // .with instance creation messages for Array and Set
+  test('.with instance creation messages for array/set', () => {
+    assert.areEqual(Array.with(1, 2, 3), [1, 2, 3]);
+    assert.areEqual(Array.with(1), [1]);
+    assert.areEqual(Set.with(1, 2, 3), new Set([1, 2, 3]));
+    assert.areEqual(Set.with(1), new Set([1]));
+  });
 }).run();

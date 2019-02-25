@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Everything is released. Yay!
+- [Set.with(objs) and Array.with(objs) (#7)](https://github.com/ngarbezza/oow/issues/7)
 
 ## [1.6.1] - 2019-02-24
 
