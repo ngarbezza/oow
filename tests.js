@@ -178,4 +178,8 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual(Set.with(1, 2, 3), new Set([1, 2, 3]));
     assert.areEqual(Set.with(1), new Set([1]));
   });
+  test('at() for array/string', () => {
+    assert.areEqual([1, 2, 3].at(0), 1);
+    assert.areEqual('hola'.at(1), 'o');
+  });
 }).run();

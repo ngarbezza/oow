@@ -22,11 +22,12 @@
   const SequenceableCollection = {
     class: { },
     instance: {
+      at(position) { return this[position]; },
       dimension() { return this.length; },
-      first() { return this[0]; },
-      second() { return this[1]; },
-      third() { return this[2]; },
-      last() { return this[this.dimension()-1]; },
+      first() { return this.at(0); },
+      second() { return this.at(1); },
+      third() { return this.at(2); },
+      last() { return this.at(this.dimension()-1); },
       take(n) { return this.slice(0, n); },
       drop(n) { return this.slice(n, this.dimension()); },
       asSet() { return new Set(this); },
@@ -34,7 +35,7 @@
     },
   };
   
-  const HeterogeneusCollection = {
+  const HeterogeneousCollection = {
     class: { },
     instance: {
       compact() {
@@ -117,7 +118,7 @@
   
   applyExtension(Collection, Array, String, Set);
   applyExtension(SequenceableCollection, Array, String);
-  applyExtension(HeterogeneusCollection, Array, Set);
+  applyExtension(HeterogeneousCollection, Array, Set);
   applyExtension(ArrayExtensions, Array);
   applyExtension(StringExtensions, String);
   applyExtension(SetExtensions, Set);
