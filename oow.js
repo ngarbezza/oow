@@ -1,5 +1,3 @@
 'use strict';
 
-(function () {
-  require('./src/collection_extensions');
-})();
+require('./src/collection_extensions');

@@ -1,3 +1,5 @@
+'use strict';
+
 const { applyExtension } = require('./extension_applier');
 
 const Collection = {

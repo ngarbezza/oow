@@ -1,3 +1,5 @@
+'use strict';
+
 const eachExtensionOf = (extension, block) =>
   Object.keys(extension).forEach(block);
 
