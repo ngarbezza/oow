@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Everything is released. :tada:
+
+## [1.7.0] - 2019-10-01
+
+### Added
 - [Set.with(objs) and Array.with(objs) (#7)](https://github.com/ngarbezza/oow/issues/7)
 - [at() for strings and arrays (#5)](https://github.com/ngarbezza/oow/issues/5)
 
@@ -26,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changes to project structure: readme, changelog, dotfiles.
 - Upgrade to latest version of Testy (v3.1.1)
 
-[Unreleased]: https://github.com/ngarbezza/testy/compare/v1.6.1...HEAD
+[Unreleased]: https://github.com/ngarbezza/testy/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/ngarbezza/testy/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/ngarbezza/testy/compare/v1.5.1...v1.6.1
 [1.5.1]: https://github.com/ngarbezza/testy/compare/v1.5.0...v1.5.1
