@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Everything is released. :tada:
+- [Date.today(), Date.yesterday(), Date.tomorrow() (#9)](https://github.com/ngarbezza/oow/issues/9)
 
 ## [1.7.0] - 2019-10-01
 

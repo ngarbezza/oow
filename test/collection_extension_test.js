@@ -1,6 +1,6 @@
 'use strict';
 
-require('../src/collection_extensions');
+require('../oow');
 const { suite, test, assert } = require('@pmoo/testy');
 
 const identity = elem => elem;
