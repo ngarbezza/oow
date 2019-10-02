@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - [Date.today(), Date.yesterday(), Date.tomorrow() (#9)](https://github.com/ngarbezza/oow/issues/9)
+- [day(), monthNumber(), year() for Date objects (#10)](https://github.com/ngarbezza/oow/issues/10)
 
 ## [1.7.0] - 2019-10-01
 

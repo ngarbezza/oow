@@ -18,7 +18,17 @@ const DateExtensions = {
       return result;
     },
   },
-  instance: { },
+  instance: {
+    day() {
+      return this.getDate();
+    },
+    monthNumber() {
+      return this.getMonth() + 1;
+    },
+    year() {
+      return this.getFullYear();
+    },
+  },
 };
 
 applyExtension(DateExtensions, Date);
