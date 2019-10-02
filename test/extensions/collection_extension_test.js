@@ -1,6 +1,6 @@
 'use strict';
 
-require('../oow');
+require('../../oow');
 const { suite, test, assert } = require('@pmoo/testy');
 
 const identity = elem => elem;

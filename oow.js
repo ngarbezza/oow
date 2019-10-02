@@ -1,4 +1,8 @@
 'use strict';
 
-require('./src/collection_extensions');
-require('./src/date_extensions');
+require('./src/extensions/collections');
+require('./src/extensions/date');
+
+module.exports = {
+  Point: require('./src/objects/point')
+};
