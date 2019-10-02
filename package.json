@@ -12,7 +12,8 @@
     "test": "node $NODE_DEBUG_OPTION tests.js"
   },
   "files": [
-    "oow.js"
+    "oow.js",
+    "src/**/*.js"
   ],
   "keywords": [
     "oop"
