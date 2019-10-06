@@ -21,6 +21,6 @@
   "author": "Nahuel Garbezza <nahuel@10pines.com>",
   "license": "MIT",
   "devDependencies": {
-    "@pmoo/testy": "^4.0.1"
+    "@pmoo/testy": "^4.1.1"
   }
 }
