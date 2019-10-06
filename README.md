@@ -5,7 +5,7 @@ experience, especially suited for teaching OOP.
 
 ## Extensions
 
-To see all the available extensions, please have a look at the tests indide the `test` folder.
+To see all the available extensions, please have a look at the tests inside the `test` folder.
 
 ### Collections
 
@@ -13,7 +13,7 @@ To see all the available extensions, please have a look at the tests indide the 
 they are all collections. For instance, `Set` has `size` and Array has `length`. So this
 library defines some common behavior to make sure we can have more polymorphism.
 
-Most of the added methods are inspired from Smalltalk (`isEmpty`, `includesAllOf`, `at`)
+Most of the added message names are inspired by Smalltalk (`isEmpty`, `includesAllOf`, `at`)
 and Ruby (`take`, `drop`, `compact`).
 
 ### Date
