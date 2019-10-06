@@ -2,8 +2,8 @@
 
 class Point {
   constructor(x, y) {
-    this._x = x;
-    this._y = y;
+    Object.defineProperty(this, '_x', { value: x });
+    Object.defineProperty(this, '_y', { value: y });
   }
 
   x() { return this._x; }
@@ -11,6 +11,30 @@ class Point {
   
   equals(anotherPoint) {
     return this.x() === anotherPoint.x() && this.y() === anotherPoint.y();
+  }
+  
+  toString() {
+    return `(${this.x()}, ${this.y()})`
+  }
+  
+  plus(anotherPoint) {
+    return new Point(this.x() + anotherPoint.x(), this.y() + anotherPoint.y());
+  }
+  
+  minus(anotherPoint) {
+    return new Point(this.x() - anotherPoint.x(), this.y() - anotherPoint.y());
+  }
+  
+  times(anotherPoint) {
+    return new Point(this.x() * anotherPoint.x(), this.y() * anotherPoint.y());
+  }
+  
+  dividedBy(anotherPoint) {
+    return new Point(this.x() / anotherPoint.x(), this.y() / anotherPoint.y());
+  }
+  
+  absolute() {
+    return new Point(Math.abs(this.x()), Math.abs(this.y()));
   }
 }
 

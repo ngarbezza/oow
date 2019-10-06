@@ -15,8 +15,4 @@ const applyExtension = (extension, ...targetTypes) => {
   );
 };
 
-module.exports = {
-  eachExtensionOf,
-  extend,
-  applyExtension,
-};
+module.exports = { applyExtension };

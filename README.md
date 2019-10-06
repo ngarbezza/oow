@@ -20,3 +20,9 @@ and Ruby (`take`, `drop`, `compact`).
 
 Working with `Date` is not so easy so there're also helper methods like `monthNumber` that
 returns a number from 1 to 12.
+
+## New Objects
+
+### Point
+
+`Point` class represents an (x, y) pair. You can access its parts by sending `x()` and `y()` messages.
