@@ -4,6 +4,7 @@ require('../../oow');
 const { suite, test, assert } = require('@pmoo/testy');
 
 const identity = elem => elem;
+const aPropertyAddedByOOW = 'isEmpty';
 
 suite('messages added to Array, String and Set', () => {
   // isEmpty
@@ -182,4 +183,18 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual([1, 2, 3].at(0), 1);
     assert.areEqual('hola'.at(1), 'o');
   });
+  
+  test('extensions are not enumerated in for..in construct', () => {
+    const someArray = [1, 2, 3];
+    let extensionWasEnumerated = false;
+    for (let property in someArray) {
+      if (property === aPropertyAddedByOOW) extensionWasEnumerated = true;
+    }
+    assert.isFalse(extensionWasEnumerated)
+  });
+  
+  test('extensions are not included in Object.keys', () => {
+    const someArray = [1, 2, 3];
+    assert.isFalse(Object.keys(someArray).includes(aPropertyAddedByOOW));
+  })
 });
