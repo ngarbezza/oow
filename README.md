@@ -16,6 +16,13 @@ library defines some common behavior to make sure we can have more polymorphism.
 Most of the added message names are inspired by Smalltalk (`isEmpty`, `includesAllOf`, `at`)
 and Ruby (`take`, `drop`, `compact`).
 
+#### Polymorphism achieved so far
+
+These are the messages that some collections have by default but others don't.
+
+* `add(obj)` works for `Array` and `Set` (we added the Array version)
+* `filter(condition)` works for all collection (we added the String version)
+
 ### Date
 
 Working with `Date` is not so easy so there're also helper methods like `monthNumber` that

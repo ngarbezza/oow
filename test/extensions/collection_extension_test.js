@@ -172,16 +172,24 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual([1, 2, 3].sum(identity, 10), 16);
     assert.areEqual(new Set([4, 5, 5]).sum(identity, 5), 14);
   });
-  // .with instance creation messages for Array and Set
+  
   test('.with instance creation messages for array/set', () => {
     assert.areEqual(Array.with(1, 2, 3), [1, 2, 3]);
     assert.areEqual(Array.with(1), [1]);
     assert.areEqual(Set.with(1, 2, 3), new Set([1, 2, 3]));
     assert.areEqual(Set.with(1), new Set([1]));
   });
-  test('at() for array/string', () => {
+  
+  test('at() for accessing elements on array/string', () => {
     assert.areEqual([1, 2, 3].at(0), 1);
     assert.areEqual('hola'.at(1), 'o');
+  });
+  
+  test('add() for arrays adds element at the last position', () => {
+    const myArray = [1, 2, 3];
+    myArray.add(4);
+    myArray.add(5);
+    assert.areEqual(myArray, [1, 2, 3, 4, 5]);
   });
   
   test('extensions are not enumerated in for..in construct', () => {

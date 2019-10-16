@@ -105,6 +105,9 @@ const ArrayExtensions = {
     }
   },
   instance: {
+    add(anObject) {
+      this.push(anObject);
+    },
     equals(array) {
       if (!array) return false;
       let differentLength = this.dimension() !== array.dimension();
