@@ -1,6 +1,6 @@
 'use strict';
 
-const { suite, test, assert, fail } = require('@pmoo/testy');
+const { suite, test, assert } = require('@pmoo/testy');
 const Point = require('../../src/objects/point');
 
 suite('Point class', () => {
