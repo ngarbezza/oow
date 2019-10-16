@@ -21,7 +21,7 @@ and Ruby (`take`, `drop`, `compact`).
 These are the messages that some collections have by default but others don't.
 
 * `add(obj)` works for `Array` and `Set` (we added the Array version)
-* `filter(condition)` works for all collection (we added the String version)
+* `filter(condition)` works for every collection (we added the String version)
 
 ### Date
 

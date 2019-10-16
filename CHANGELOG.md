@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Everything is released. Yay! :tada:
+### Added
+- [[extension] Array#add (#13)](https://github.com/ngarbezza/oow/issues/13)
+- [[new object] DayOfMonth with essential behavior (#14)](https://github.com/ngarbezza/oow/issues/14)
 
 ## [1.8.0] - 2019-10-10
 
