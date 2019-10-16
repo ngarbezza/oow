@@ -10,6 +10,7 @@ Everything is released. Yay! :tada:
 
 ## [1.8.0] - 2019-10-10
 
+### Added
 - [Date.today(), Date.yesterday(), Date.tomorrow() (#9)](https://github.com/ngarbezza/oow/issues/9)
 - [day(), monthNumber(), year() for Date objects (#10)](https://github.com/ngarbezza/oow/issues/10)
 - [Point class with essential behavior (#11)](https://github.com/ngarbezza/oow/issues/11)

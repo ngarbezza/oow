@@ -42,13 +42,7 @@ suite('Point class', () => {
     ensurePropertyCannotBeSet(pointA, '_y');
   });
 
-  // can be refactored once we add support for regex matches on Testy
   function ensurePropertyCannotBeSet(object, property) {
-    try {
-      object[property] = 3;
-      fail.with('expected point to be immutable');
-    } catch (e) {
-      assert.isTrue(e.message.match(/Cannot assign to read only property/).notEmpty());
-    }
+    assert.that(() => { object[property] = 3; }).raises(/Cannot assign to read only property/);
   }
 });
