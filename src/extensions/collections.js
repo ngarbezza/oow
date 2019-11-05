@@ -79,6 +79,12 @@ const SequenceableCollection = {
     occurrencesOf(object) {
       return this.count(elem => elem === object);
     },
+    allButFirst(){
+      return this.drop(1);
+    },
+    allButLast(){
+      return this.take(this.dimension()-1);
+    },
   },
 };
 
