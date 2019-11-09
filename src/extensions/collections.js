@@ -139,6 +139,10 @@ const StringExtensions = {
     equals(string) {
       return this === string;
     },
+    
+    reverse() {
+      return this.split('').reverse().join('');
+    },
   },
 };
 

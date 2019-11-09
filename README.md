@@ -29,6 +29,7 @@ These are the messages that some collections have by default but others don't.
 * `add(obj)` works for `Array` and `Set` (we added the `Array` version)
 * `includes(obj)` works for `Array` and `Set` (we added the `Set` version)
 * `filter(condition)` works for every collection (we added the `String` version)
+* `reverse()` works for `Array` and `String` (we added the `String` version)
 
 ### `Date`
 

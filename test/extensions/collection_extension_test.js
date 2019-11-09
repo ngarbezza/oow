@@ -204,5 +204,9 @@ suite('messages added to Array, String and Set', () => {
   test('extensions are not included in Object.keys', () => {
     const someArray = [1, 2, 3];
     assert.isFalse(Object.keys(someArray).includes(aPropertyAddedByOOW));
-  })
+  });
+  
+  test('reverser() can be called on a String', () => {
+    assert.areEqual('hola'.reverse(), 'aloh');
+  });
 });
