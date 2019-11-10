@@ -206,7 +206,20 @@ suite('messages added to Array, String and Set', () => {
     assert.isFalse(Object.keys(someArray).includes(aPropertyAddedByOOW));
   });
   
-  test('reverser() can be called on a String', () => {
+  test('reverse() can be called on a String', () => {
     assert.areEqual('hola'.reverse(), 'aloh');
+  });
+  
+  test('remove(obj) can be used to remove an element from an array', () => {
+    const array = [1, 2, 3, 4];
+    array.remove(3);
+    assert.that(array).includesExactly(1, 2, 4);
+  });
+  
+  test('remove(obj) can be used to remove an element from a set', () => {
+    const set = Set.with(1, 2, 3, 4);
+    set.remove(3);
+    const setWithoutThree = Set.with(1, 2, 4);
+    assert.areEqual(set, setWithoutThree); // cannot use includesExactly per testy bug #58
   });
 });

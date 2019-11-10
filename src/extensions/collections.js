@@ -108,6 +108,11 @@ const ArrayExtensions = {
     add(anObject) {
       this.push(anObject);
     },
+    
+    remove(object) {
+      this.splice(this.indexOf(object), 1);
+    },
+    
     equals(array) {
       if (!array) return false;
       let differentLength = this.dimension() !== array.dimension();
@@ -120,7 +125,7 @@ const ArrayExtensions = {
       }
       return true
     },
-  }
+  },
 };
 
 const StringExtensions = {
@@ -175,7 +180,11 @@ const SetExtensions = {
     
     asSet() {
       return this;
-    }
+    },
+  
+    remove(object) {
+      return this.delete(object);
+    },
   },
 };
 
