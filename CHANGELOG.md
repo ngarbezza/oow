@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Everything is released. Yay! :tada: 
+
+## [1.9.0] - 2019-11-10
+
 ### Added
 - [[extension] Array#add (#13)](https://github.com/ngarbezza/oow/issues/13)
 - [[new object] DayOfMonth with essential behavior (#14)](https://github.com/ngarbezza/oow/issues/14)
@@ -43,7 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changes to project structure: readme, changelog, dotfiles.
 - Upgrade to latest version of Testy (v3.1.1)
 
-[Unreleased]: https://github.com/ngarbezza/oow/compare/v1.8.0...HEAD
+[Unreleased]: https://github.com/ngarbezza/oow/compare/v1.9.0...HEAD
+[1.9.0]: https://github.com/ngarbezza/oow/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/ngarbezza/oow/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/ngarbezza/oow/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/ngarbezza/oow/compare/v1.5.1...v1.6.1
