@@ -205,23 +205,44 @@ suite('messages added to Array, String and Set', () => {
     const someArray = [1, 2, 3];
     assert.isFalse(Object.keys(someArray).includes(aPropertyAddedByOOW));
   });
+  
+  test('reverse() can be called on a String', () => {
+    assert.areEqual('hola'.reverse(), 'aloh');
+  });
+  
+  test('remove(obj) can be used to remove an element from an array', () => {
+    const array = [1, 2, 3, 4];
+    array.remove(3);
+    assert.that(array).includesExactly(1, 2, 4);
+  });
+  
+  test('remove(obj) can be used to remove an element from a set', () => {
+    const set = Set.with(1, 2, 3, 4);
+    set.remove(3);
+    const setWithoutThree = Set.with(1, 2, 4);
+    assert.areEqual(set, setWithoutThree); // cannot use includesExactly per testy bug #58
+  });
+  
   test('All but first', () => {
     const someArray = [1, 2, 3];
     const someString = "hola";
     assert.that(someArray.allButFirst()).isEqualTo([2, 3]);
     assert.that(someString.allButFirst()).isEqualTo("ola");
   });
+  
   test('All but last', () => {
     const someArray = [1, 2, 3];
     const someString = "hola";
     assert.that(someArray.allButLast()).isEqualTo([1, 2]);
     assert.that(someString.allButLast()).isEqualTo("hol");
   });
+  
   test('Union de sets', () => {
     const someSet1 = new Set ([1, 2, 3]);
     const someSet2 = new Set ([3,4,5]);
     assert.areEqual(someSet1.union(someSet2), new Set([1, 2, 3, 4, 5]));
   });
+  
   test('Intersection de sets', () => {
     const someSet1 = new Set ([1, 2, 3]);
     const someSet2 = new Set ([3,4,5]);

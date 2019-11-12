@@ -1,6 +1,6 @@
 {
   "name": "@pmoo/oow",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Extension methods that should exist in JS core by default",
   "homepage": "https://github.com/ngarbezza/oow",
   "repository": {
