@@ -177,7 +177,22 @@ const SetExtensions = {
     
     asSet() {
       return this;
-    }
+    },
+
+    union(set) { //Refactor with addAll
+      let result = new Set();
+      this.forEach(elem => {
+        result.add(elem);
+      });
+      set.forEach(elem => {
+        result.add(elem);
+      });
+      return result;
+    },
+
+    intersection(set) {
+      return this.filter(elem => set.includes(elem));
+    },
   },
 };
 
