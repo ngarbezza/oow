@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Everything is released. Yay! :tada: 
+### Added
+- [[extension] allButFirst(), allButLast()](https://github.com/ngarbezza/oow/issues/12): Thank you, @federicostulich !
+- [[extension] union(set) and intersection(set) for Sets](https://github.com/ngarbezza/oow/issues/24): Thank you, @federicostulich !
 
 ## [1.9.0] - 2019-11-10
 
