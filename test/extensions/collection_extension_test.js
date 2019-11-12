@@ -222,4 +222,30 @@ suite('messages added to Array, String and Set', () => {
     const setWithoutThree = Set.with(1, 2, 4);
     assert.areEqual(set, setWithoutThree); // cannot use includesExactly per testy bug #58
   });
+  
+  test('All but first', () => {
+    const someArray = [1, 2, 3];
+    const someString = "hola";
+    assert.that(someArray.allButFirst()).isEqualTo([2, 3]);
+    assert.that(someString.allButFirst()).isEqualTo("ola");
+  });
+  
+  test('All but last', () => {
+    const someArray = [1, 2, 3];
+    const someString = "hola";
+    assert.that(someArray.allButLast()).isEqualTo([1, 2]);
+    assert.that(someString.allButLast()).isEqualTo("hol");
+  });
+  
+  test('Union de sets', () => {
+    const someSet1 = new Set ([1, 2, 3]);
+    const someSet2 = new Set ([3,4,5]);
+    assert.areEqual(someSet1.union(someSet2), new Set([1, 2, 3, 4, 5]));
+  });
+  
+  test('Intersection de sets', () => {
+    const someSet1 = new Set ([1, 2, 3]);
+    const someSet2 = new Set ([3,4,5]);
+    assert.areEqual(someSet1.intersection(someSet2), new Set([3]));
+  });
 });

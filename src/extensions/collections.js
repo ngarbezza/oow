@@ -79,6 +79,12 @@ const SequenceableCollection = {
     occurrencesOf(object) {
       return this.count(elem => elem === object);
     },
+    allButFirst(){
+      return this.drop(1);
+    },
+    allButLast(){
+      return this.take(this.dimension()-1);
+    },
   },
 };
 
@@ -181,9 +187,24 @@ const SetExtensions = {
     asSet() {
       return this;
     },
-  
+    
     remove(object) {
       return this.delete(object);
+    },
+    
+    union(set) { //Refactor with addAll
+      let result = new Set();
+      this.forEach(elem => {
+        result.add(elem);
+      });
+      set.forEach(elem => {
+        result.add(elem);
+      });
+      return result;
+    },
+
+    intersection(set) {
+      return this.filter(elem => set.includes(elem));
     },
   },
 };
