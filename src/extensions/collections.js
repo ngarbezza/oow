@@ -98,7 +98,11 @@ const HeterogeneousCollection = {
     
     sum(func, startValue) {
       let result = startValue || 0;
-      this.forEach(elem => result += (func && func(elem)) || elem);
+      this.forEach(elem => {
+        const valueFromFunction = func && func(elem);
+        const valueToSum = valueFromFunction != null ? valueFromFunction : elem;
+        result += valueToSum;
+      });
       return result;
     },
   },

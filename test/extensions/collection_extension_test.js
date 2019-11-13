@@ -159,18 +159,27 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual('hola'.dimension(), 4);
     assert.areEqual(new Set('abcde').dimension(), 5);
   });
+  
   // sum
   test('sum elements of array/set with default starting value (0)', () => {
     assert.areEqual([4, 5, 6].sum(), 15);
     assert.areEqual(new Set([4, 5, 5]).sum(), 9);
   });
+  
   test('sum elements of array/set with a function applied to each element', () => {
     assert.areEqual([4, 5, 6].sum(elem => elem + 1), 18);
     assert.areEqual(new Set([4, 5, 5]).sum(elem => elem - 1), 7);
   });
+  
   test('sum elements of array/set with a starting value', () => {
     assert.areEqual([1, 2, 3].sum(identity, 10), 16);
     assert.areEqual(new Set([4, 5, 5]).sum(identity, 5), 14);
+  });
+  
+  test('sum using a function that returns zero, is zero', () => {
+    const objWithZero = { prop: 0 };
+    const sumWithZeroResult = [objWithZero, objWithZero, objWithZero].sum(obj => obj.prop, 0);
+    assert.areEqual(sumWithZeroResult, 0);
   });
   
   test('.with instance creation messages for array/set', () => {
@@ -225,27 +234,27 @@ suite('messages added to Array, String and Set', () => {
   
   test('All but first', () => {
     const someArray = [1, 2, 3];
-    const someString = "hola";
+    const someString = 'hola';
     assert.that(someArray.allButFirst()).isEqualTo([2, 3]);
-    assert.that(someString.allButFirst()).isEqualTo("ola");
+    assert.that(someString.allButFirst()).isEqualTo('ola');
   });
   
   test('All but last', () => {
     const someArray = [1, 2, 3];
-    const someString = "hola";
+    const someString = 'hola';
     assert.that(someArray.allButLast()).isEqualTo([1, 2]);
-    assert.that(someString.allButLast()).isEqualTo("hol");
+    assert.that(someString.allButLast()).isEqualTo('hol');
   });
   
-  test('Union de sets', () => {
-    const someSet1 = new Set ([1, 2, 3]);
-    const someSet2 = new Set ([3,4,5]);
+  test('Set union', () => {
+    const someSet1 = new Set([1, 2, 3]);
+    const someSet2 = new Set([3,4,5]);
     assert.areEqual(someSet1.union(someSet2), new Set([1, 2, 3, 4, 5]));
   });
   
-  test('Intersection de sets', () => {
-    const someSet1 = new Set ([1, 2, 3]);
-    const someSet2 = new Set ([3,4,5]);
+  test('Set intersection', () => {
+    const someSet1 = new Set([1, 2, 3]);
+    const someSet2 = new Set([3,4,5]);
     assert.areEqual(someSet1.intersection(someSet2), new Set([3]));
   });
 });
