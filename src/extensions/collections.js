@@ -206,9 +206,15 @@ const SetExtensions = {
       });
       return result;
     },
-
+    
     intersection(set) {
       return this.filter(elem => set.includes(elem));
+    },
+    
+    map(func) {
+      let result = new Set();
+      this.forEach(elem => result.add(func(elem)));
+      return result;
     },
   },
 };

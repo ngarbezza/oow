@@ -257,4 +257,10 @@ suite('messages added to Array, String and Set', () => {
     const someSet2 = new Set([3,4,5]);
     assert.areEqual(someSet1.intersection(someSet2), new Set([3]));
   });
+  
+  test('map() for Sets', () => {
+    const mySet = new Set([1, 2, 3]);
+    const result = mySet.map(elem => elem + 20);
+    assert.areEqual(result, Set.with(21, 22, 23));
+  });
 });
