@@ -33,6 +33,14 @@ const Collection = {
     count(predicate) {
       return this.filter(predicate).dimension();
     },
+  
+    atRandom() {
+      return Array.from(this).at(Math.floor(Math.random() * this.dimension()));
+    },
+    
+    sample() {
+      return this.atRandom();
+    }
   },
 };
 

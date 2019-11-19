@@ -263,4 +263,30 @@ suite('messages added to Array, String and Set', () => {
     const result = mySet.map(elem => elem + 20);
     assert.areEqual(result, Set.with(21, 22, 23));
   });
+  
+  test('atRandom() for all collections, when there is only one element it is always selected', () => {
+    assert.areEqual('h'.atRandom(), 'h');
+    assert.areEqual([1].atRandom(), 1);
+    assert.areEqual(Set.with(3).atRandom(), 3);
+  });
+  
+  test('atRandom() for all collections, when there is only one element it is always selected', () => {
+    // refactor when isIncludedIn() matcher is added to testy
+    assert.that('hola').includes('hola'.atRandom());
+    assert.that([1, 2, 3]).includes([1, 2, 3].atRandom());
+    assert.that(Set.with(3, 5, 7)).includes(Set.with(3, 5, 7).atRandom());
+  });
+  
+  test('atRandom() for all collections, when the collection is empty it returns undefined', () => {
+    // refactor when isUndefined() matcher is added to testy
+    assert.isTrue(''.atRandom() === undefined);
+    assert.isTrue([].atRandom() === undefined);
+    assert.isTrue(Set.with().atRandom() === undefined);
+  });
+  
+  test('atRandom() and sample() are aliases', () => {
+    assert.areEqual('h'.atRandom(), 'h'.sample());
+    assert.areEqual([1].atRandom(), [1].sample());
+    assert.areEqual(Set.with(3).atRandom(), Set.with(3).sample());
+  });
 });
