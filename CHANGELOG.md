@@ -6,9 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Everything is released. Yay! :tada:
+
+## [1.10.0] - 2019-11-19
+
+### Fixed
+- [[bug] sum returns an odd result if the resulting value from summing function is zero](https://github.com/ngarbezza/oow/issues/28)
+
 ### Added
 - [[extension] allButFirst(), allButLast()](https://github.com/ngarbezza/oow/issues/12): Thank you, @federicostulich !
 - [[extension] union(set) and intersection(set) for Sets](https://github.com/ngarbezza/oow/issues/24): Thank you, @federicostulich !
+- [[extension] map(f) for Sets](https://github.com/ngarbezza/oow/issues/26)
+- [[extension] atRandom() and sample() for all collections](https://github.com/ngarbezza/oow/issues/17)
 
 ## [1.9.0] - 2019-11-10
 
@@ -49,7 +58,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changes to project structure: readme, changelog, dotfiles.
 - Upgrade to latest version of Testy (v3.1.1)
 
-[Unreleased]: https://github.com/ngarbezza/oow/compare/v1.9.0...HEAD
+[Unreleased]: https://github.com/ngarbezza/oow/compare/v1.10.0...HEAD
+[1.10.0]: https://github.com/ngarbezza/oow/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/ngarbezza/oow/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/ngarbezza/oow/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/ngarbezza/oow/compare/v1.6.1...v1.7.0
