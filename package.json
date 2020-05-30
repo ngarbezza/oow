@@ -18,9 +18,9 @@
   "keywords": [
     "oop"
   ],
-  "author": "Nahuel Garbezza <nahuel@10pines.com>",
+  "author": "Nahuel Garbezza <n.garbezza@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@pmoo/testy": "^4.2.2"
+    "@pmoo/testy": "^5.0.0"
   }
 }
