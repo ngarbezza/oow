@@ -35,12 +35,16 @@ const Collection = {
     },
   
     atRandom() {
-      return Array.from(this).at(Math.floor(Math.random() * this.dimension()));
+      return this.asArray().at(Math.floor(Math.random() * this.dimension()));
     },
     
     sample() {
       return this.atRandom();
-    }
+    },
+  
+    asArray() {
+      return Array.from(this);
+    },
   },
 };
 

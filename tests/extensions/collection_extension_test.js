@@ -119,6 +119,13 @@ suite('messages added to Array, String and Set', () => {
   test('asSet on array', () => assert.areEqual([1, 42, 1, 1].asSet(), new Set([1, 42])));
   test('asSet on string', () => assert.areEqual('holaaaaa'.asSet(), new Set('hola')));
   test('asSet on set', () => assert.areEqual(new Set('hola').asSet(), new Set('hola')));
+  // asArray
+  test('asArray on array', () => assert.areEqual([1, 23, 42].asArray(), [1, 23, 42]));
+  test('asArray on string', () => assert.areEqual('hola'.asArray(), ['h', 'o', 'l', 'a']));
+  test('asArray on set', () => {
+    const setAsArray = new Set([1, 23, 42]).asArray();
+    assert.that(setAsArray).includesExactly(1, 23, 42);
+  });
   // occurrences of element
   test('occurrences of object on array', () => {
     assert.areEqual([1, 1, 1, 23].occurrencesOf(1), 3);
