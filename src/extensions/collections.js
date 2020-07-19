@@ -87,11 +87,13 @@ const SequenceableCollection = {
     occurrencesOf(object) {
       return this.count(elem => elem === object);
     },
-    allButFirst(){
+    
+    allButFirst() {
       return this.drop(1);
     },
-    allButLast(){
-      return this.take(this.dimension()-1);
+    
+    allButLast() {
+      return this.take(this.dimension() - 1);
     },
   },
 };
@@ -108,6 +110,7 @@ const HeterogeneousCollection = {
       let result = startValue || 0;
       this.forEach(elem => {
         const valueFromFunction = func && func(elem);
+        // eslint-disable-next-line eqeqeq
         const valueToSum = valueFromFunction != null ? valueFromFunction : elem;
         result += valueToSum;
       });
@@ -133,15 +136,15 @@ const ArrayExtensions = {
     
     equals(array) {
       if (!array) return false;
-      let differentLength = this.dimension() !== array.dimension();
+      const differentLength = this.dimension() !== array.dimension();
       if (differentLength) return false;
       
       for (let i = 0, l = this.dimension(); i < l; i++) {
-        let elemsAreArrays = (this[i] instanceof Array) && (array[i] instanceof Array);
+        const elemsAreArrays = (this[i] instanceof Array) && (array[i] instanceof Array);
         if (elemsAreArrays && !this[i].equals(array[i])) return false;
-        if (this[i] !== array[i]) return false
+        if (this[i] !== array[i]) return false;
       }
-      return true
+      return true;
     },
   },
 };
@@ -155,7 +158,7 @@ const StringExtensions = {
     },
     
     forEach(func) {
-      for (let index in this)
+      for (const index in this)
         func(this[index]);
     },
     
@@ -189,7 +192,7 @@ const SetExtensions = {
     },
     
     filter(predicate) {
-      let result = new Set();
+      const result = new Set();
       this.forEach(elem => {
         if (predicate(elem)) result.add(elem);
       });
@@ -205,7 +208,7 @@ const SetExtensions = {
     },
     
     union(set) { //Refactor with addAll
-      let result = new Set();
+      const result = new Set();
       this.forEach(elem => {
         result.add(elem);
       });
@@ -220,7 +223,7 @@ const SetExtensions = {
     },
     
     map(func) {
-      let result = new Set();
+      const result = new Set();
       this.forEach(elem => result.add(func(elem)));
       return result;
     },

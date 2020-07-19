@@ -8,38 +8,38 @@ const aPropertyAddedByOOW = 'isEmpty';
 
 suite('messages added to Array, String and Set', () => {
   // isEmpty
-  test('isEmpty is true for array/set/string', () =>  {
+  test('isEmpty is true for array/set/string', () => {
     assert.isTrue([].isEmpty());
     assert.isTrue(''.isEmpty());
     assert.isTrue(new Set().isEmpty());
   });
-  test('isEmpty is false for array/set/string', () =>  {
+  test('isEmpty is false for array/set/string', () => {
     assert.isFalse([1].isEmpty());
     assert.isFalse('a'.isEmpty());
     assert.isFalse(new Set([4]).isEmpty());
   });
   // notEmpty
-  test('notEmpty is true for array/set/string', () =>  {
+  test('notEmpty is true for array/set/string', () => {
     assert.isTrue([1].notEmpty());
     assert.isTrue('a'.notEmpty());
     assert.isTrue(new Set([4]).notEmpty());
   });
-  test('notEmpty is false for array/set/string', () =>  {
+  test('notEmpty is false for array/set/string', () => {
     assert.isFalse([].notEmpty());
     assert.isFalse(''.notEmpty());
     assert.isFalse(new Set().notEmpty());
   });
   // first
-  test('first of list',   () => assert.areEqual([1, 2, 3].first(), 1));
+  test('first of list', () => assert.areEqual([1, 2, 3].first(), 1));
   test('first of string', () => assert.areEqual('hola'.first(), 'h'));
   // second
-  test('second of list',   () => assert.areEqual([1, 2, 3].second(), 2));
+  test('second of list', () => assert.areEqual([1, 2, 3].second(), 2));
   test('second of string', () => assert.areEqual('hola'.second(), 'o'));
   // third
-  test('third of list',   () => assert.areEqual([1, 2, 3].third(), 3));
+  test('third of list', () => assert.areEqual([1, 2, 3].third(), 3));
   test('third of string', () => assert.areEqual('hola'.third(), 'l'));
   // last
-  test('last of list',   () => assert.areEqual([1, 2, 3].last(), 3));
+  test('last of list', () => assert.areEqual([1, 2, 3].last(), 3));
   test('last of string', () => assert.areEqual('hola'.last(), 'a'));
   // any
   test('any in case true for array/string/set',() => {
@@ -85,10 +85,10 @@ suite('messages added to Array, String and Set', () => {
     assert.areNotEqual(new Set([1, 2]), new Set([1, 2, 3]), 'equals');
   });
   // take
-  test('take 2 on a list',   () => assert.areEqual([3,2,1].take(2), [3,2]));
+  test('take 2 on a list', () => assert.areEqual([3,2,1].take(2), [3,2]));
   test('take 2 on a string', () => assert.areEqual('hola'.take(2), 'ho'));
   // drop
-  test('drop 2 on a list',   () => assert.areEqual([3,2,1].drop(2), [1]));
+  test('drop 2 on a list', () => assert.areEqual([3,2,1].drop(2), [1]));
   test('drop 2 on a string', () => assert.areEqual('hola'.drop(2), 'la'));
   // compact
   test('compact a list/set with nulls', () => {
@@ -96,7 +96,7 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual(new Set([1, null, 2]).compact(), new Set([1, 2]));
   });
   test('compact a list/set with undefineds', () => {
-    assert.areEqual([undefined, 1, undefined, 2].compact(), [1,2])
+    assert.areEqual([undefined, 1, undefined, 2].compact(), [1,2]);
   });
   // count
   test('counting (present elements) on list/string/set', () => {
@@ -111,14 +111,14 @@ suite('messages added to Array, String and Set', () => {
   });
   // filter on string/set
   test('filtering on string/set', () => {
-    let notAnA = l => l !== 'a';
+    const notAnA = l => l !== 'a';
     assert.areEqual('asaoamaeatahaianaga'.filter(notAnA), 'something');
     assert.areEqual(new Set('asaoamaeatahaianaga').filter(notAnA), new Set('something'));
   });
   // asSet
-  test('asSet on array',   () => assert.areEqual([1, 42, 1, 1].asSet(), new Set([1, 42])));
-  test('asSet on string',  () => assert.areEqual('holaaaaa'.asSet(), new Set('hola')));
-  test('asSet on set',     () => assert.areEqual(new Set('hola').asSet(), new Set('hola')));
+  test('asSet on array', () => assert.areEqual([1, 42, 1, 1].asSet(), new Set([1, 42])));
+  test('asSet on string', () => assert.areEqual('holaaaaa'.asSet(), new Set('hola')));
+  test('asSet on set', () => assert.areEqual(new Set('hola').asSet(), new Set('hola')));
   // occurrences of element
   test('occurrences of object on array', () => {
     assert.areEqual([1, 1, 1, 23].occurrencesOf(1), 3);
@@ -154,7 +154,7 @@ suite('messages added to Array, String and Set', () => {
   test('set includes an element', () => assert.isTrue(new Set([2, 1]).includes(1)));
   test('set does not include an element', () => assert.isFalse(new Set([2, 1]).includes(3)));
   // dimension (because length and size cannot be used)
-  test('dimension as a polymorphic message to get the size of array/set/string', () =>{
+  test('dimension as a polymorphic message to get the size of array/set/string', () => {
     assert.areEqual([1, 2, 3].dimension(), 3);
     assert.areEqual('hola'.dimension(), 4);
     assert.areEqual(new Set('abcde').dimension(), 5);
@@ -204,10 +204,10 @@ suite('messages added to Array, String and Set', () => {
   test('extensions are not enumerated in for..in construct', () => {
     const someArray = [1, 2, 3];
     let extensionWasEnumerated = false;
-    for (let property in someArray) {
+    for (const property in someArray) {
       if (property === aPropertyAddedByOOW) extensionWasEnumerated = true;
     }
-    assert.isFalse(extensionWasEnumerated)
+    assert.isFalse(extensionWasEnumerated);
   });
   
   test('extensions are not included in Object.keys', () => {

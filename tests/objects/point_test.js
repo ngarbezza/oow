@@ -2,6 +2,7 @@
 
 const { suite, test, assert } = require('@pmoo/testy');
 const Point = require('../../src/objects/point');
+const { ensurePropertyCannotBeSet } = require('../test_utils');
 
 suite('Point class', () => {
   test('x() and y() can be used to access coordinates', () => {
@@ -38,11 +39,7 @@ suite('Point class', () => {
     assert.that(new Point(-1, 2).absolute()).isEqualTo(new Point(1, 2)));
   
   test('point properties cannot be changed', () => {
-    ensurePropertyCannotBeSet(pointA, '_x');
-    ensurePropertyCannotBeSet(pointA, '_y');
+    ensurePropertyCannotBeSet(pointA, '_x', assert);
+    ensurePropertyCannotBeSet(pointA, '_y', assert);
   });
-
-  function ensurePropertyCannotBeSet(object, property) {
-    assert.that(() => { object[property] = 3; }).raises(/Cannot assign to read only property/);
-  }
 });
