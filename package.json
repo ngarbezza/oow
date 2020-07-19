@@ -7,9 +7,12 @@
     "type": "git",
     "url": "https://github.com/ngarbezza/oow"
   },
+  "engines": {
+    "node": ">= 8.*"
+  },
   "main": "oow.js",
   "scripts": {
-    "test": "node $NODE_DEBUG_OPTION tests.js"
+    "test": "npx testy"
   },
   "files": [
     "oow.js",

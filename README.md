@@ -7,7 +7,7 @@ experience, especially suited for teaching OOP. **Not intended for production us
 
 `npm install @pmoo/oow`
 
-(required Node version: higher than 6.x)
+(required Node version: 8.x or higher)
 
 ## Extensions
 
