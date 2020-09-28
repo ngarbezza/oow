@@ -120,6 +120,10 @@ const HeterogeneousCollection = {
       });
       return result;
     },
+
+    removeAll() {
+      return this.clear();
+    }
   },
 };
 
@@ -149,6 +153,10 @@ const ArrayExtensions = {
         if (this[i] !== array[i]) return false;
       }
       return true;
+    },
+
+    clear() {
+      this.length = 0;
     },
   },
 };
