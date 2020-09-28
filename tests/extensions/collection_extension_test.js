@@ -285,15 +285,35 @@ suite('messages added to Array, String and Set', () => {
   });
   
   test('atRandom() for all collections, when the collection is empty it returns undefined', () => {
-    // refactor when isUndefined() matcher is added to testy
-    assert.isTrue(''.atRandom() === undefined);
-    assert.isTrue([].atRandom() === undefined);
-    assert.isTrue(Set.with().atRandom() === undefined);
+    assert.isUndefined(''.atRandom());
+    assert.isUndefined([].atRandom());
+    assert.isUndefined(Set.with().atRandom());
   });
   
   test('atRandom() and sample() are aliases', () => {
     assert.areEqual('h'.atRandom(), 'h'.sample());
     assert.areEqual([1].atRandom(), [1].sample());
     assert.areEqual(Set.with(3).atRandom(), Set.with(3).sample());
+  });
+
+  test('removeAll() for array', () => {
+    const array = ['a', 2, { b: 3 }];
+    array.removeAll();
+
+    assert.that(array).isEmpty();
+  });
+
+  test('removeAll() for set', () => {
+    const set = Set.with(1, 2, 3);
+    set.removeAll();
+
+    assert.that(set).isEmpty();
+  });
+
+  test('clear() for array', () => {
+    const array = ['a', 2, { b: 3 }];
+    array.clear();
+
+    assert.that(array).isEmpty();
   });
 });
