@@ -15,11 +15,11 @@ const Collection = {
     },
     
     any(predicate) {
-      let found = false;
-      this.forEach(elem => {
-        if (predicate(elem)) return found = true;
-      });
-      return found;
+      for(const elem of this) {
+        if (predicate(elem))
+          return true;
+      }
+      return false;
     },
     
     all(predicate) {
@@ -170,8 +170,8 @@ const StringExtensions = {
     },
     
     forEach(func) {
-      for (const index in this)
-        func(this[index]);
+      for (const element of this)
+        func(element);
     },
     
     equals(string) {
@@ -204,11 +204,7 @@ const SetExtensions = {
     },
     
     filter(predicate) {
-      const result = new Set();
-      this.forEach(elem => {
-        if (predicate(elem)) result.add(elem);
-      });
-      return result;
+      return this.asArray().filter(predicate).asSet();
     },
     
     asSet() {
@@ -220,13 +216,10 @@ const SetExtensions = {
     },
     
     union(set) { //Refactor with addAll
-      const result = new Set();
-      this.forEach(elem => {
-        result.add(elem);
-      });
-      set.forEach(elem => {
-        result.add(elem);
-      });
+      const result = new Set(this);
+      set.forEach(elem =>
+        result.add(elem)
+      );
       return result;
     },
     
