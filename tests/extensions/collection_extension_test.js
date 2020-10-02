@@ -279,9 +279,9 @@ suite('messages added to Array, String and Set', () => {
   
   test('atRandom() for all collections, when there is only one element it is always selected', () => {
     // refactor when isIncludedIn() matcher is added to testy
-    assert.that('hola').includes('hola'.atRandom());
+    assert.isTrue('hola'.includes('hola'.atRandom()));
+    assert.isTrue(Set.with(3, 5, 7).includes(Set.with(3, 5, 7).atRandom()));
     assert.that([1, 2, 3]).includes([1, 2, 3].atRandom());
-    assert.that(Set.with(3, 5, 7)).includes(Set.with(3, 5, 7).atRandom());
   });
   
   test('atRandom() for all collections, when the collection is empty it returns undefined', () => {
