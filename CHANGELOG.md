@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Everything is released. Yay! :tada:
 
+## [1.11.0] - 2019-10-02
+
+### Added
+- [[extension] Collection>>asArray()](https://github.com/ngarbezza/oow/issues/29)
+- [[extension] Object>>childResponsibility()](https://github.com/ngarbezza/oow/issues/30)
+- [[extension] removeAll() for Array and Set](https://github.com/ngarbezza/oow/issues/23): also making `clear()` polymorphic (existing method in `Set`).
+
+Also, some improvements to the repo were made: eslint rules, issue templates, upgrading dependencies.
+
 ## [1.10.0] - 2019-11-19
 
 ### Fixed
@@ -58,7 +67,8 @@ Everything is released. Yay! :tada:
 - Changes to project structure: readme, changelog, dotfiles.
 - Upgrade to latest version of Testy (v3.1.1)
 
-[Unreleased]: https://github.com/ngarbezza/oow/compare/v1.10.0...HEAD
+[Unreleased]: https://github.com/ngarbezza/oow/compare/v1.11.0...HEAD
+[1.11.0]: https://github.com/ngarbezza/oow/compare/v1.10.0...v1.11.0
 [1.10.0]: https://github.com/ngarbezza/oow/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/ngarbezza/oow/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/ngarbezza/oow/compare/v1.7.0...v1.8.0
