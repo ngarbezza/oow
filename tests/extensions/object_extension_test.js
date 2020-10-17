@@ -11,4 +11,12 @@ suite('messages added to objects', () => {
       .that(() => object.childResponsibility())
       .raises(`${object} had the responsibility to implement this method`);
   });
+
+  // subclass responsibility
+  test('subclassResponsibility() raises an error', () => {
+    const object = { };
+    assert
+      .that(() => object.subclassResponsibility())
+      .raises(`${object} had the responsibility to implement this method`);
+  });
 });
