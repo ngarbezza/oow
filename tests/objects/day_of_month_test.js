@@ -24,22 +24,32 @@ suite('DayOfMonth class', () => {
   });
   
   test('a day of month cannot be created if the day is less than 1', () => {
-    assert.that(() => { new DayOfMonth(0, 12); }).raises(DayOfMonth.errorMessageForInvalidDay(0));
+    assert
+      .that(() => { new DayOfMonth(0, 12); })
+      .raises(DayOfMonth.errorMessageForInvalidDay(0));
   });
   
   test('a day of month cannot be created if the day is greater than 31', () => {
-    assert.that(() => { new DayOfMonth(32, 12); }).raises(DayOfMonth.errorMessageForInvalidDay(32));
+    assert
+      .that(() => { new DayOfMonth(32, 12); })
+      .raises(DayOfMonth.errorMessageForInvalidDay(32));
   });
   
   test('a day of month cannot be created if the month is less than 1', () => {
-    assert.that(() => { new DayOfMonth(9, 0); }).raises(DayOfMonth.errorMessageForInvalidMonth(0));
+    assert
+      .that(() => { new DayOfMonth(9, 0); })
+      .raises(DayOfMonth.errorMessageForInvalidMonth(0));
   });
   
-  test('a day of month cannot be created if the month is greater than 13', () => {
-    assert.that(() => { new DayOfMonth(9, 13); }).raises(DayOfMonth.errorMessageForInvalidMonth(13));
+  test('a day of month cannot be created if the month is greater than 12', () => {
+    assert
+      .that(() => { new DayOfMonth(9, 13); })
+      .raises(DayOfMonth.errorMessageForInvalidMonth(13));
   });
   
   test('a day of month cannot be created if the day number is not valid for a particular month', () => {
-    assert.that(() => { new DayOfMonth(30, 2); }).raises(DayOfMonth.errorMessageForInvalidDayInMonth(30, 2));
+    assert
+      .that(() => { new DayOfMonth(30, 2); })
+      .raises(DayOfMonth.errorMessageForInvalidDayInMonth(30, 2));
   });
 });

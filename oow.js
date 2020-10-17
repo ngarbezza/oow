@@ -7,5 +7,6 @@ require('./src/extensions/object');
 
 module.exports = {
   Point: require('./src/objects/point'),
-  DayOfMonth: require('./src/objects/day_of_month')
+  DayOfMonth: require('./src/objects/day_of_month'),
+  MonthOfYear: require('./src/objects/month_of_year'),
 };

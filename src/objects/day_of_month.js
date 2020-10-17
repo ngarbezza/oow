@@ -1,5 +1,7 @@
 'use strict';
 
+require('../extensions/object');
+
 class DayOfMonth {
   static errorMessageForInvalidDay(day) {
     return `${day} is not a valid day number`;
@@ -23,12 +25,12 @@ class DayOfMonth {
   
   _ensureDayIsValid(day) {
     if (day < 1 || day > 31)
-      throw DayOfMonth.errorMessageForInvalidDay(day);
+      throw this.class().errorMessageForInvalidDay(day);
   }
   
   _ensureMonthIsValid(monthNumber) {
     if (monthNumber < 1 || monthNumber > 12)
-      throw DayOfMonth.errorMessageForInvalidMonth(monthNumber);
+      throw this.class().errorMessageForInvalidMonth(monthNumber);
   }
   
   _ensureDayIsValidForMonth(day, monthNumber) {
@@ -36,11 +38,16 @@ class DayOfMonth {
       1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
     };
     if (day > expectedNumberOfDaysForEachMonth[monthNumber])
-      throw DayOfMonth.errorMessageForInvalidDayInMonth(day, monthNumber);
+      throw this.class().errorMessageForInvalidDayInMonth(day, monthNumber);
   }
 
-  day() { return this._day; }
-  monthNumber() { return this._monthNumber; }
+  day() {
+    return this._day;
+  }
+
+  monthNumber() {
+    return this._monthNumber;
+  }
   
   equals(anotherDayOfMonth) {
     return this.day() === anotherDayOfMonth.day() && this.monthNumber() === anotherDayOfMonth.monthNumber();
