@@ -19,4 +19,14 @@ suite('messages added to objects', () => {
       .that(() => object.subclassResponsibility())
       .raises(`${object} had the responsibility to implement this method`);
   });
+
+  test('class() for literal objects return Object', () => {
+    assert.that({}.class()).isEqualTo(Object);
+  });
+
+  test('class() for instances of a class return that class', () => {
+    class C1 {}
+
+    assert.that(new C1().class()).isEqualTo(C1);
+  });
 });
