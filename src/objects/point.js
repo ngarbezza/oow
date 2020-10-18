@@ -25,23 +25,23 @@ class Point {
   }
   
   plus(anotherPoint) {
-    return new (this.class())(this.x() + anotherPoint.x(), this.y() + anotherPoint.y());
+    return this.class().new(this.x() + anotherPoint.x(), this.y() + anotherPoint.y());
   }
   
   minus(anotherPoint) {
-    return new (this.class())(this.x() - anotherPoint.x(), this.y() - anotherPoint.y());
+    return this.class().new(this.x() - anotherPoint.x(), this.y() - anotherPoint.y());
   }
   
   times(anotherPoint) {
-    return new (this.class())(this.x() * anotherPoint.x(), this.y() * anotherPoint.y());
+    return this.class().new(this.x() * anotherPoint.x(), this.y() * anotherPoint.y());
   }
   
   dividedBy(anotherPoint) {
-    return new (this.class())(this.x() / anotherPoint.x(), this.y() / anotherPoint.y());
+    return this.class().new(this.x() / anotherPoint.x(), this.y() / anotherPoint.y());
   }
   
   absolute() {
-    return new (this.class())(Math.abs(this.x()), Math.abs(this.y()));
+    return this.class().new(Math.abs(this.x()), Math.abs(this.y()));
   }
 }
 

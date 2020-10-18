@@ -8,7 +8,11 @@ const FunctionExtension = {
   instance: {
     value(...args) {
       return this.apply(undefined, args);
-    }
+    },
+
+    new(...args) {
+      return new this(...args);
+    },
   },
 };
 

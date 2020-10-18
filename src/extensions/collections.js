@@ -85,7 +85,7 @@ const SequenceableCollection = {
     },
     
     asSet() {
-      return new Set(this);
+      return Set.new(this);
     },
     
     occurrencesOf(object) {
@@ -216,7 +216,7 @@ const SetExtensions = {
     },
     
     union(set) { //Refactor with addAll
-      const result = new Set(this);
+      const result = this.class().new(this);
       set.forEach(elem =>
         result.add(elem)
       );
@@ -228,7 +228,7 @@ const SetExtensions = {
     },
     
     map(func) {
-      const result = new Set();
+      const result = this.class().new();
       this.forEach(elem => result.add(func(elem)));
       return result;
     },
