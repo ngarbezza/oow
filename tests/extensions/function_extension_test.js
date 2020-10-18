@@ -13,4 +13,23 @@ suite('messages added to functions', () => {
     const toEvaluate = (a, b, c) => `${a}, ${b} and ${c}`;
     assert.areEqual(toEvaluate.value('one', 'two', 'three'), 'one, two and three');
   });
+
+  test('new() can be used as a replacement for the "new" keyword for constructor without arguments', () => {
+    assert.that(Array.new()).isEqualTo(new Array());
+  });
+
+  test('new() can be used as a replacement for the "new" keyword for constructor with arguments', () => {
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      equals(anotherPerson) {
+        return this.name === anotherPerson.name && this.age === anotherPerson.age;
+      }
+    }
+
+    assert.that(Person.new('avery', 19)).isEqualTo(new Person('avery', 19));
+  });
 });
