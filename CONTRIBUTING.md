@@ -4,6 +4,6 @@ Issues and Pull Requests are welcome. This project is particular because it does
 
 For any type of code change where behavior is affected (a new feature or a bug fix), please add a unit test for it on the `test/extensions` folder if it's an extension of an existing JS object, or `test/objects` if it about a new object.
 
-For new features, please include a documentation in our README files.
+For new features, please include a documentation in our README files (extensions are all documented in the "Summary" section while new objects have their own section).
 
 Using [Gitmoji](https://gitmoji.carloscuesta.me/) to format your commit messages s a nice-to have :)
