@@ -4,6 +4,7 @@ require('./src/extensions/collections');
 require('./src/extensions/date');
 require('./src/extensions/function');
 require('./src/extensions/object');
+require('./src/extensions/number');
 
 module.exports = {
   Point: require('./src/objects/point'),
