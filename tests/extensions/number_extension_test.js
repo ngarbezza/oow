@@ -63,13 +63,13 @@ suite('messages added to Number', () => {
   })
 
   test("isOdd returns true if the receiver is odd", () => {
-    assert.isFalse(one.isOdd())
-    assert.isTrue(two.isOdd())
+    assert.isTrue(one.isOdd())
+    assert.isFalse(two.isOdd())
   })
 
-  test("isEven  returns true if the receiver is even", () => {
-    assert.isTrue(one.isEven())
-    assert.isFalse(two.isEven())
+  test("isEven returns true if the receiver is even", () => {
+    assert.isTrue(two.isEven())
+    assert.isFalse(one.isEven())
   })
 
   test("isPositive returns true if the receiver is positive", () => {

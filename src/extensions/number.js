@@ -7,11 +7,11 @@ const NumberExtensions = {
     isDivisibleBy(aNumber) {
       return this % aNumber === 0;
     },
-    isOdd() {
+    isEven() {
       return this.isDivisibleBy(2);
     },
-    isEven() {
-      return !this.isOdd();
+    isOdd() {
+      return !this.isEven();
     },
     isPositive() {
       return this > 0;
