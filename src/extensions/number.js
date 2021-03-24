@@ -26,9 +26,9 @@ const NumberExtensions = {
       return Math.abs(this);
     },
     timesRepeat(aFunction) {
-      for (let i = 0; i < this; i++) aFunction()
+      for (let i = 0; i < this; i++) aFunction();
     }
   }
-}
+};
 
 applyExtension(NumberExtensions, Number);
