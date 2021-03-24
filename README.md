@@ -67,6 +67,14 @@ experience, especially suited for teaching OOP. **Not intended for production us
 |                            |                 |`sample()`                  |returns a random element, equivalent to `atRandom()`|
 |                            |                 |`asArray()`                 |returns a new `Array` with all the collection elements|
 |                            |                 |`asSet()`                   |returns a new `Set` with all the collection elements|
+|`Number`                    | instance        |`isDivisibleBy(aNumber)`    |returns `true` if the receiver is divisible by the argument|
+|                            |                 |`isOdd()`                   |returns `true` if the receiver is odd|
+|                            |                 |`isEven()`                  |returns `true` if the receiver is even|
+|                            |                 |`isPositive()`              |returns `true` if the receiver is positive|
+|                            |                 |`isNegative()`              |returns `true` if the receiver is negative|
+|                            |                 |`isBetween(minimun,maximun)`|returns `true` if the receiver is between the first and the second arguments|
+|                            |                 |`timesRepeat(aFunction)`    |call aFunction as many times as the receiver of the message|
+
 
 To see how all the available extensions are being used, please have a look at the tests inside the `test` folder.
 
