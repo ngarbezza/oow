@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "federicostulich",
+      "name": "federicostulich",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51274964?v=4",
+      "profile": "https://github.com/federicostulich",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "oow",
+  "projectOwner": "ngarbezza",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
