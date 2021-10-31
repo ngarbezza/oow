@@ -1,21 +1,43 @@
 name: Node CI
+
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x, 14.x]
+        node-version: [12.x, 14.x, 16.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, lint and test
-      run: |
-        npm install
-        npm run lint
-        npm test
-      env:
-        CI: true
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Build NPM package, run lint analysis and tests
+        run: |
+          npm install
+          npm run lint
+          npm run test
+        env:
+          CI: true
+      - name: Code Climate Coverage Action
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: 6c71e1a9cd02406833f3c2459cbdce25e6ab3d46c556ad12e64c0cf91b173de8
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.projectKey=ngarbezza_oow
+            -Dsonar.organization=ngarbezza
+            -Dsonar.projectName=OOW
+            -Dsonar.projectVersion=1.11.0
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.coverage.exclusions=tests/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

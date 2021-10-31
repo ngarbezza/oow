@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Everything is released. Yay! :tada:
 
-## [1.11.0] - 2019-10-02
+## [1.11.0] - 2020-10-02
 
 ### Added
 - [[extension] Collection>>asArray()](https://github.com/ngarbezza/oow/issues/29)
