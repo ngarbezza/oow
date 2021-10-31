@@ -1,6 +1,6 @@
 # OOW
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An "Object-Oriented way" for JS (methods that should exist by default). The idea is to add more OO
@@ -131,6 +131,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/federicostulich"><img src="https://avatars.githubusercontent.com/u/51274964?v=4?s=100" width="100px;" alt=""/><br /><sub><b>federicostulich</b></sub></a><br /><a href="https://github.com/ngarbezza/oow/commits?author=federicostulich" title="Code">💻</a> <a href="https://github.com/ngarbezza/oow/commits?author=federicostulich" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/davidgonzalezjs"><img src="https://avatars.githubusercontent.com/u/31224430?v=4?s=100" width="100px;" alt=""/><br /><sub><b>davidgonzalezjs</b></sub></a><br /><a href="https://github.com/ngarbezza/oow/commits?author=davidgonzalezjs" title="Code">💻</a> <a href="https://github.com/ngarbezza/oow/commits?author=davidgonzalezjs" title="Documentation">📖</a> <a href="https://github.com/ngarbezza/oow/commits?author=davidgonzalezjs" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
