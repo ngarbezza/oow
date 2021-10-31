@@ -14,6 +14,17 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "davidgonzalezjs",
+      "name": "davidgonzalezjs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31224430?v=4",
+      "profile": "https://github.com/davidgonzalezjs",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
