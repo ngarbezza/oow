@@ -8,13 +8,13 @@
     "url": "https://github.com/ngarbezza/oow"
   },
   "engines": {
-    "node": ">= 8.*"
+    "node": ">= 12.*"
   },
   "main": "oow.js",
   "scripts": {
     "coverage": "npx nyc@latest --reporter=lcov --reporter=text npm test",
     "open-coverage-report": "open coverage/lcov-report/index.html",
-    "lint": "npx eslint@6.8.0 .",
+    "lint": "npx eslint .",
     "test": "npx testy"
   },
   "files": [
@@ -27,6 +27,6 @@
   "author": "Nahuel Garbezza <n.garbezza@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@pmoo/testy": "^5.1.0"
+    "@pmoo/testy": "^6.0.0"
   }
 }
