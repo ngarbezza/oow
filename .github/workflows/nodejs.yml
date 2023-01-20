@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x, 18.x]
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Build NPM package, run lint analysis and tests
@@ -25,7 +25,11 @@ jobs:
         env:
           CI: true
       - name: Code Climate Coverage Action
-        uses: paambaati/codeclimate-action@v2.6.0
+        uses: paambaati/codeclimate-action@v3.2.0
+        with:
+          coverageCommand: npm run coverage
+          coverageLocations: ${{github.workspace}}/coverage/lcov.info:lcov
+          debug: true
         env:
           CC_TEST_REPORTER_ID: 6c71e1a9cd02406833f3c2459cbdce25e6ab3d46c556ad12e64c0cf91b173de8
       - name: SonarCloud Scan
