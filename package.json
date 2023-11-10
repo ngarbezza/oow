@@ -8,7 +8,7 @@
     "url": "https://github.com/ngarbezza/oow"
   },
   "engines": {
-    "node": ">= 16.*"
+    "node": ">= 18.*"
   },
   "main": "oow.js",
   "scripts": {
