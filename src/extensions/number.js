@@ -1,6 +1,6 @@
 'use strict';
 
-const { applyExtension } = require('./extension_applier');
+import { applyExtension } from './extension_applier.js';
 
 const NumberExtensions = {
   instance: {
@@ -31,4 +31,6 @@ const NumberExtensions = {
   }
 };
 
-applyExtension(NumberExtensions, Number);
+export const install = () => {
+  applyExtension(NumberExtensions, Number);
+};

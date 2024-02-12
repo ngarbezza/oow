@@ -1,8 +1,6 @@
 'use strict';
 
-require('../extensions/object');
-
-class MonthOfYear {
+export class MonthOfYear {
   static errorMessageForInvalidYear(year) {
     return `${year} is not a valid year number`;
   }
@@ -17,17 +15,17 @@ class MonthOfYear {
     Object.defineProperty(this, '_monthNumber', { value: monthNumber });
     Object.defineProperty(this, '_year', { value: year });
   }
-  
+
   _ensureYearIsValid(year) {
     if (year < 0)
       throw this.class().errorMessageForInvalidYear(year);
   }
-  
+
   _ensureMonthIsValid(monthNumber) {
     if (monthNumber < 1 || monthNumber > 12)
       throw this.class().errorMessageForInvalidMonth(monthNumber);
   }
-  
+
   year() {
     return this._year;
   }
@@ -35,10 +33,8 @@ class MonthOfYear {
   monthNumber() {
     return this._monthNumber;
   }
-  
+
   equals(anotherMonthOfYear) {
     return this.monthNumber() === anotherMonthOfYear.monthNumber() && this.year() === anotherMonthOfYear.year();
   }
 }
-
-module.exports = MonthOfYear;

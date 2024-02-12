@@ -1,13 +1,23 @@
 'use strict';
 
-require('./src/extensions/collections');
-require('./src/extensions/date');
-require('./src/extensions/function');
-require('./src/extensions/object');
-require('./src/extensions/number');
+import { install as installCollection } from './src/extensions/collections.js';
+import { install as installDate } from './src/extensions/date.js';
+import { install as installFunction } from './src/extensions/function.js';
+import { install as installObject } from './src/extensions/object.js';
+import { install as installNumber } from './src/extensions/number.js';
 
-module.exports = {
-  Point: require('./src/objects/point'),
-  DayOfMonth: require('./src/objects/day_of_month'),
-  MonthOfYear: require('./src/objects/month_of_year'),
+import { Point } from './src/objects/point.js';
+import { DayOfMonth } from './src/objects/day_of_month.js';
+import { MonthOfYear } from './src/objects/month_of_year.js';
+
+installCollection();
+installDate();
+installFunction();
+installObject();
+installNumber();
+
+export {
+  Point,
+  DayOfMonth,
+  MonthOfYear,
 };

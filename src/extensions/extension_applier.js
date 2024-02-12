@@ -6,7 +6,7 @@ const eachExtensionOf = (extension, block) =>
 const extend = (proto, extension, methodName) =>
   Object.defineProperty(proto, methodName, { value: extension[methodName] });
 
-const applyExtension = (extension, ...targetTypes) => {
+export const applyExtension = (extension, ...targetTypes) => {
   eachExtensionOf(extension.instance, methodName =>
     targetTypes.forEach(type => extend(type.prototype, extension.instance, methodName))
   );
@@ -14,5 +14,3 @@ const applyExtension = (extension, ...targetTypes) => {
     targetTypes.forEach(type => extend(type, extension.class, methodName))
   );
 };
-
-module.exports = { applyExtension };

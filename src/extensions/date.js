@@ -1,6 +1,6 @@
 'use strict';
 
-const { applyExtension } = require('./extension_applier');
+import { applyExtension } from './extension_applier.js';
 
 const DateExtensions = {
   class: {
@@ -31,4 +31,6 @@ const DateExtensions = {
   },
 };
 
-applyExtension(DateExtensions, Date);
+export const install = () => {
+  applyExtension(DateExtensions, Date);
+};

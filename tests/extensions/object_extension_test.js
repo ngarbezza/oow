@@ -1,7 +1,6 @@
 'use strict';
 
-require('../../oow');
-const { suite, test, assert } = require('@pmoo/testy');
+import { assert, suite, test } from '@pmoo/testy';
 
 suite('messages added to objects', () => {
   // child responsibility

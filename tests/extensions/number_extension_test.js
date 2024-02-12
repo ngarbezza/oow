@@ -1,14 +1,11 @@
 'use strict';
 
-require('../../oow');
-const { suite, test, assert } = require('@pmoo/testy');
-
-require('../../src/extensions/number.js');
+import { assert, suite, test } from '@pmoo/testy';
 
 /*
 
-Messages cannot be send to number literals.
-A message can be send to a number in the following cases:
+Messages cannot be sent to number literals.
+A message can be sent to a number in the following cases:
 
   * To a variable containing a number
     const two = 2
@@ -16,12 +13,12 @@ A message can be send to a number in the following cases:
 
   * To an instance of Number
     new Number(2).isEven()
-  
+
   * To a number returned from a function
     function two() { return 2 }
     two().isEven()
 
-  * On some browsers a message can be send to a number literal inside parentesis
+  * On some browsers a message can be sent to a number literal inside parenthesis
 
 */
 const minusOne = -1;
@@ -43,7 +40,7 @@ suite('messages added to Number', () => {
 
   test('timesRepeat do nothing if the receiver of the message is to zero', () => {
     let counter = 0;
-    
+
     zero.timesRepeat(() => counter++);
 
     assert.that(counter).isEqualTo(0);
@@ -51,7 +48,7 @@ suite('messages added to Number', () => {
 
   test('timesRepeat do nothing if the receiver of the message is less than zero', () => {
     let counter = 0;
-    
+
     minusOne.timesRepeat(() => counter++);
 
     assert.that(counter).isEqualTo(0);

@@ -1,6 +1,6 @@
 'use strict';
 
-const { applyExtension } = require('./extension_applier');
+import { applyExtension } from './extension_applier.js';
 
 const ObjectExtension = {
   class: {
@@ -20,4 +20,6 @@ const ObjectExtension = {
   },
 };
 
-applyExtension(ObjectExtension, Object);
+export const install = () => {
+  applyExtension(ObjectExtension, Object);
+};

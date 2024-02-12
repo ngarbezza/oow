@@ -1,7 +1,6 @@
 'use strict';
 
-require('../../oow');
-const { suite, test, assert } = require('@pmoo/testy');
+import { assert, suite, test } from '@pmoo/testy';
 
 const identity = elem => elem;
 const aPropertyAddedByOOW = 'isEmpty';
@@ -166,48 +165,48 @@ suite('messages added to Array, String and Set', () => {
     assert.areEqual('hola'.dimension(), 4);
     assert.areEqual(new Set('abcde').dimension(), 5);
   });
-  
+
   // sum
   test('sum elements of array/set with default starting value (0)', () => {
     assert.areEqual([4, 5, 6].sum(), 15);
     assert.areEqual(new Set([4, 5, 5]).sum(), 9);
   });
-  
+
   test('sum elements of array/set with a function applied to each element', () => {
     assert.areEqual([4, 5, 6].sum(elem => elem + 1), 18);
     assert.areEqual(new Set([4, 5, 5]).sum(elem => elem - 1), 7);
   });
-  
+
   test('sum elements of array/set with a starting value', () => {
     assert.areEqual([1, 2, 3].sum(identity, 10), 16);
     assert.areEqual(new Set([4, 5, 5]).sum(identity, 5), 14);
   });
-  
+
   test('sum using a function that returns zero, is zero', () => {
     const objWithZero = { prop: 0 };
     const sumWithZeroResult = [objWithZero, objWithZero, objWithZero].sum(obj => obj.prop, 0);
     assert.areEqual(sumWithZeroResult, 0);
   });
-  
+
   test('.with instance creation messages for array/set', () => {
     assert.areEqual(Array.with(1, 2, 3), [1, 2, 3]);
     assert.areEqual(Array.with(1), [1]);
     assert.areEqual(Set.with(1, 2, 3), new Set([1, 2, 3]));
     assert.areEqual(Set.with(1), new Set([1]));
   });
-  
+
   test('at() for accessing elements on array/string', () => {
     assert.areEqual([1, 2, 3].at(0), 1);
     assert.areEqual('hola'.at(1), 'o');
   });
-  
+
   test('add() for arrays adds element at the last position', () => {
     const myArray = [1, 2, 3];
     myArray.add(4);
     myArray.add(5);
     assert.areEqual(myArray, [1, 2, 3, 4, 5]);
   });
-  
+
   test('extensions are not enumerated in for..in construct', () => {
     const someArray = [1, 2, 3];
     let extensionWasEnumerated = false;
@@ -216,80 +215,80 @@ suite('messages added to Array, String and Set', () => {
     }
     assert.isFalse(extensionWasEnumerated);
   });
-  
+
   test('extensions are not included in Object.keys', () => {
     const someArray = [1, 2, 3];
     assert.isFalse(Object.keys(someArray).includes(aPropertyAddedByOOW));
   });
-  
+
   test('reverse() can be called on a String', () => {
     assert.areEqual('hola'.reverse(), 'aloh');
   });
-  
+
   test('remove(obj) can be used to remove an element from an array', () => {
     const array = [1, 2, 3, 4];
     array.remove(3);
     assert.that(array).includesExactly(1, 2, 4);
   });
-  
+
   test('remove(obj) can be used to remove an element from a set', () => {
     const set = Set.with(1, 2, 3, 4);
     set.remove(3);
     const setWithoutThree = Set.with(1, 2, 4);
     assert.areEqual(set, setWithoutThree); // cannot use includesExactly per testy bug #58
   });
-  
+
   test('All but first', () => {
     const someArray = [1, 2, 3];
     const someString = 'hola';
     assert.that(someArray.allButFirst()).isEqualTo([2, 3]);
     assert.that(someString.allButFirst()).isEqualTo('ola');
   });
-  
+
   test('All but last', () => {
     const someArray = [1, 2, 3];
     const someString = 'hola';
     assert.that(someArray.allButLast()).isEqualTo([1, 2]);
     assert.that(someString.allButLast()).isEqualTo('hol');
   });
-  
+
   test('Set union', () => {
     const someSet1 = new Set([1, 2, 3]);
     const someSet2 = new Set([3,4,5]);
     assert.areEqual(someSet1.union(someSet2), new Set([1, 2, 3, 4, 5]));
   });
-  
+
   test('Set intersection', () => {
     const someSet1 = new Set([1, 2, 3]);
     const someSet2 = new Set([3,4,5]);
     assert.areEqual(someSet1.intersection(someSet2), new Set([3]));
   });
-  
+
   test('map() for Sets', () => {
     const mySet = new Set([1, 2, 3]);
     const result = mySet.map(elem => elem + 20);
     assert.areEqual(result, Set.with(21, 22, 23));
   });
-  
+
   test('atRandom() for all collections, when there is only one element it is always selected', () => {
     assert.areEqual('h'.atRandom(), 'h');
     assert.areEqual([1].atRandom(), 1);
     assert.areEqual(Set.with(3).atRandom(), 3);
   });
-  
+
   test('atRandom() for all collections, when there is only one element it is always selected', () => {
     // refactor when isIncludedIn() matcher is added to testy
     assert.isTrue('hola'.includes('hola'.atRandom()));
     assert.isTrue(Set.with(3, 5, 7).includes(Set.with(3, 5, 7).atRandom()));
     assert.that([1, 2, 3]).includes([1, 2, 3].atRandom());
   });
-  
+
   test('atRandom() for all collections, when the collection is empty it returns undefined', () => {
     assert.isUndefined(''.atRandom());
     assert.isUndefined([].atRandom());
     assert.isUndefined(Set.with().atRandom());
   });
-  
+
   test('atRandom() and sample() are aliases', () => {
     assert.areEqual('h'.atRandom(), 'h'.sample());
     assert.areEqual([1].atRandom(), [1].sample());
