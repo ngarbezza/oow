@@ -3,6 +3,7 @@
 import { applyExtension } from './extension_applier.js';
 
 const NumberExtensions = {
+  targets: [Number],
   instance: {
     isDivisibleBy(aNumber) {
       return this % aNumber === 0;
@@ -32,5 +33,5 @@ const NumberExtensions = {
 };
 
 export const install = () => {
-  applyExtension(NumberExtensions, Number);
+  applyExtension(NumberExtensions);
 };

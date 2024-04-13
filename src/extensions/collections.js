@@ -3,6 +3,7 @@
 import { applyExtension } from './extension_applier.js';
 
 const Collection = {
+  targets: [Array, String, Set],
   class: {
   },
   instance: {
@@ -49,6 +50,7 @@ const Collection = {
 };
 
 const SequenceableCollection = {
+  targets: [Array, String],
   class: {
   },
   instance: {
@@ -103,6 +105,7 @@ const SequenceableCollection = {
 };
 
 const HeterogeneousCollection = {
+  targets: [Array, Set],
   class: {
   },
   instance: {
@@ -128,6 +131,7 @@ const HeterogeneousCollection = {
 };
 
 const ArrayExtensions = {
+  targets: [Array],
   class: {
     with(...objects) {
       return objects;
@@ -162,6 +166,7 @@ const ArrayExtensions = {
 };
 
 const StringExtensions = {
+  targets: [String],
   class: {
   },
   instance: {
@@ -189,6 +194,7 @@ const StringExtensions = {
 };
 
 const SetExtensions = {
+  targets: [Set],
   class: {
     with(...objects) {
       return objects.asSet();
@@ -240,10 +246,10 @@ const SetExtensions = {
 };
 
 export const install = () => {
-  applyExtension(Collection, Array, String, Set);
-  applyExtension(SequenceableCollection, Array, String);
-  applyExtension(HeterogeneousCollection, Array, Set);
-  applyExtension(ArrayExtensions, Array);
-  applyExtension(StringExtensions, String);
-  applyExtension(SetExtensions, Set);
+  applyExtension(Collection);
+  applyExtension(SequenceableCollection);
+  applyExtension(HeterogeneousCollection);
+  applyExtension(ArrayExtensions);
+  applyExtension(StringExtensions);
+  applyExtension(SetExtensions);
 };

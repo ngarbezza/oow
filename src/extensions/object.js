@@ -3,6 +3,7 @@
 import { applyExtension } from './extension_applier.js';
 
 const ObjectExtension = {
+  targets: [Object],
   class: {
   },
   instance: {
@@ -25,5 +26,5 @@ const ObjectExtension = {
 };
 
 export const install = () => {
-  applyExtension(ObjectExtension, Object);
+  applyExtension(ObjectExtension);
 };

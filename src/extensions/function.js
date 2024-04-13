@@ -3,6 +3,7 @@
 import { applyExtension } from './extension_applier.js';
 
 const FunctionExtension = {
+  targets: [Function],
   class: {
   },
   instance: {
@@ -17,5 +18,5 @@ const FunctionExtension = {
 };
 
 export const install = () => {
-  applyExtension(FunctionExtension, Function);
+  applyExtension(FunctionExtension);
 };

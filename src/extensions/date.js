@@ -3,9 +3,10 @@
 import { applyExtension } from './extension_applier.js';
 
 const DateExtensions = {
+  targets: [Date],
   class: {
     today() {
-      return new Date();
+      return this.new();
     },
     tomorrow() {
       const result = this.today();
@@ -32,5 +33,5 @@ const DateExtensions = {
 };
 
 export const install = () => {
-  applyExtension(DateExtensions, Date);
+  applyExtension(DateExtensions);
 };
