@@ -8,7 +8,7 @@ suite('messages added to objects', () => {
     const object = { };
     assert
       .that(() => object.childResponsibility())
-      .raises(`${object} had the responsibility to implement this method`);
+      .raises(new Error(`${object.class()} had the responsibility to implement this method`));
   });
 
   // subclass responsibility
@@ -16,7 +16,7 @@ suite('messages added to objects', () => {
     const object = { };
     assert
       .that(() => object.subclassResponsibility())
-      .raises(`${object} had the responsibility to implement this method`);
+      .raises(new Error(`${object.class()} had the responsibility to implement this method`));
   });
 
   test('class() for literal objects return Object', () => {

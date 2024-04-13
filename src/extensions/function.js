@@ -7,7 +7,7 @@ const FunctionExtension = {
   },
   instance: {
     value(...args) {
-      return this.apply(undefined, args);
+      return this(...args);
     },
 
     new(...args) {

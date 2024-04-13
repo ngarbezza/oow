@@ -181,6 +181,10 @@ const StringExtensions = {
     reverse() {
       return this.split('').reverse().join('');
     },
+
+    isString() {
+      return true;
+    },
   },
 };
 

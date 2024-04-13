@@ -11,11 +11,15 @@ const ObjectExtension = {
     },
 
     childResponsibility() {
-      throw `${this} had the responsibility to implement this method`;
+      throw new Error(`${this.class()} had the responsibility to implement this method`);
     },
 
     subclassResponsibility() {
       this.childResponsibility();
+    },
+
+    isString() {
+      return false;
     },
   },
 };
