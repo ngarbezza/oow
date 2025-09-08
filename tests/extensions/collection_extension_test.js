@@ -315,4 +315,85 @@ suite('messages added to Array, String and Set', () => {
 
     assert.that(array).isEmpty();
   });
+
+  test('shuffle() mutates the original array', () => {
+    const originalArray = [1, 2, 3, 4, 5];
+    const array = [...originalArray]; // create a copy
+    const result = array.shuffle();
+
+    // shuffle() should return the same array instance
+    assert.areEqual(result, array);
+    
+    // the array should still have the same elements
+    assert.that(array).includesExactly(...originalArray);
+    
+    // the array should have the same length
+    assert.areEqual(array.dimension(), originalArray.length);
+  });
+
+  test('shuffle() with single element array', () => {
+    const array = [1];
+    array.shuffle();
+    assert.areEqual(array, [1]);
+  });
+
+  test('shuffle() with empty array', () => {
+    const array = [];
+    array.shuffle();
+    assert.areEqual(array, []);
+  });
+
+  test('shuffled() returns a new shuffled array without modifying original', () => {
+    const originalArray = [1, 2, 3, 4, 5];
+    const shuffledArray = originalArray.shuffled();
+
+    // original should be unchanged
+    assert.areEqual(originalArray, [1, 2, 3, 4, 5]);
+    
+    // shuffled should have the same elements
+    assert.that(shuffledArray).includesExactly(...originalArray);
+    
+    // shuffled should have the same length
+    assert.areEqual(shuffledArray.dimension(), originalArray.length);
+  });
+
+  test('shuffled() with single element array', () => {
+    const array = [1];
+    const shuffled = array.shuffled();
+    assert.areEqual(shuffled, [1]);
+    assert.areEqual(array, [1]); // original unchanged
+  });
+
+  test('shuffled() with empty array', () => {
+    const array = [];
+    const shuffled = array.shuffled();
+    assert.areEqual(shuffled, []);
+    assert.areEqual(array, []); // original unchanged
+  });
+
+  test('shuffled() returns a shuffled string without modifying original', () => {
+    const originalString = 'hello';
+    const shuffledString = originalString.shuffled();
+
+    // original should be unchanged
+    assert.areEqual(originalString, 'hello');
+    
+    // shuffled should have the same characters
+    assert.areEqual(shuffledString.asArray().sort().join(''), 'ehllo');
+    
+    // shuffled should have the same length
+    assert.areEqual(shuffledString.dimension(), originalString.length);
+  });
+
+  test('shuffled() with single character string', () => {
+    const string = 'a';
+    const shuffled = string.shuffled();
+    assert.areEqual(shuffled, 'a');
+  });
+
+  test('shuffled() with empty string', () => {
+    const string = '';
+    const shuffled = string.shuffled();
+    assert.areEqual(shuffled, '');
+  });
 });

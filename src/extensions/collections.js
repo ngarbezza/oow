@@ -101,6 +101,21 @@ const SequenceableCollection = {
     allButLast() {
       return this.take(this.dimension() - 1);
     },
+
+    shuffled() {
+      const copy = this.asArray();
+      // Fisher-Yates shuffle algorithm
+      for (let i = copy.dimension() - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      
+      // Return the appropriate type based on the original
+      if (this.isString && this.isString()) {
+        return copy.join('');
+      }
+      return copy;
+    },
   },
 };
 
@@ -161,6 +176,15 @@ const ArrayExtensions = {
 
     clear() {
       this.length = 0;
+    },
+
+    shuffle() {
+      // Fisher-Yates shuffle algorithm
+      for (let i = this.dimension() - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [this[i], this[j]] = [this[j], this[i]];
+      }
+      return this;
     },
   },
 };
